@@ -10,73 +10,74 @@ import './BlogPage.css';
 const blogPosts = [
   {
     id: 1,
-    title: 'The Future of CNC Manufacturing: Trends to Watch',
-    excerpt: 'Explore the latest trends in CNC manufacturing and how they are shaping the future of the industry.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop',
+    title: 'Discovering the Hidden Gems of Mozambique\'s Coast',
+    excerpt: 'Explore the pristine beaches and untouched beauty of Mozambique\'s coastline, from Barra to Tofo.',
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
     date: 'January 15, 2023',
-    author: 'Christiaan Von Stade',
-    category: 'Engineering',
-    tags: ['CNC', 'Manufacturing', 'Technology']
+    author: 'Jaco Ligthelm',
+    category: 'Travel',
+    tags: ['Mozambique', 'Beach', 'Travel']
   },
   {
     id: 2,
-    title: 'Web Design Trends That Will Dominate in 2023',
-    excerpt: 'Stay ahead of the curve with these web design trends that are set to dominate the digital landscape in 2023.',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop',
+    title: 'Luxury Beach House Design: Creating Your Perfect Getaway',
+    excerpt: 'Discover the art of designing luxury beach houses that blend comfort, style, and natural beauty.',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=400&fit=crop',
     date: 'February 22, 2023',
-    author: 'Sure Von Stade',
-    category: 'Web Development',
-    tags: ['Web Design', 'UI/UX', 'Trends']
+    author: 'Mariska van der Merwe',
+    category: 'Design',
+    tags: ['Interior Design', 'Beach House', 'Luxury']
   },
   {
     id: 3,
-    title: 'How to Create a Successful Social Media Strategy',
-    excerpt: 'Learn the key components of a successful social media strategy and how to implement them for your business.',
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop',
+    title: 'Sustainable Tourism in Mozambique: Our Commitment',
+    excerpt: 'Learn about our commitment to sustainable tourism and how we protect the natural beauty of Barra.',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     date: 'March 10, 2023',
-    author: 'Sure Von Stade',
-    category: 'Digital Marketing',
-    tags: ['Social Media', 'Marketing', 'Strategy']
+    author: 'Jaco Ligthelm',
+    category: 'Sustainability',
+    tags: ['Sustainability', 'Environment', 'Tourism']
   },
   {
     id: 4,
-    title: 'The Importance of Brand Consistency Across All Platforms',
-    excerpt: 'Discover why maintaining brand consistency across all platforms is crucial for building a strong brand identity.',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=400&fit=crop',
+    title: 'The Best Activities and Excursions in Barra',
+    excerpt: 'Discover the amazing activities and excursions available in Barra, from snorkeling to cultural tours.',
+    image: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=400&fit=crop',
     date: 'April 5, 2023',
-    author: 'Sure Von Stade',
-    category: 'Graphic Design',
-    tags: ['Branding', 'Design', 'Marketing']
+    author: 'Jaco Ligthelm',
+    category: 'Activities',
+    tags: ['Activities', 'Excursions', 'Adventure']
   },
   {
     id: 5,
-    title: 'Mobile App Development: Native vs. Cross-Platform',
-    excerpt: 'Compare the pros and cons of native and cross-platform mobile app development to determine which is right for your project.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop',
+    title: 'Planning Your Perfect Beach Vacation in Mozambique',
+    excerpt: 'Essential tips for planning an unforgettable beach vacation in Mozambique, from packing to local customs.',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
     date: 'May 18, 2023',
-    author: 'Christiaan Von Stade',
-    category: 'Software Development',
-    tags: ['Mobile Apps', 'Development', 'Technology']
+    author: 'Mariska van der Merwe',
+    category: 'Travel Tips',
+    tags: ['Travel', 'Planning', 'Vacation']
   },
   {
     id: 6,
-    title: 'Optimizing Your Website for Search Engines in 2023',
-    excerpt: 'Learn the latest SEO techniques to optimize your website and improve your search engine rankings in 2023.',
-    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop',
+    title: 'Local Culture and Cuisine: Experiencing Authentic Mozambique',
+    excerpt: 'Immerse yourself in the rich culture and delicious cuisine of Mozambique during your stay.',
+    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&h=400&fit=crop',
     date: 'June 30, 2023',
-    author: 'Sure Von Stade',
-    category: 'Digital Marketing',
-    tags: ['SEO', 'Web Development', 'Marketing']
+    author: 'Jaco Ligthelm',
+    category: 'Culture',
+    tags: ['Culture', 'Cuisine', 'Local Experience']
   }
 ];
 
 const categories = [
   'All',
-  'Engineering',
-  'Web Development',
-  'Digital Marketing',
-  'Graphic Design',
-  'Software Development'
+  'Travel',
+  'Design',
+  'Sustainability',
+  'Activities',
+  'Travel Tips',
+  'Culture'
 ];
 
 const BlogPage = () => {

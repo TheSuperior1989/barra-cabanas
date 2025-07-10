@@ -65,7 +65,7 @@ const AboutPage = () => {
               </p>
             </motion.div>
             <motion.div className="about-image" variants={itemVariants}>
-              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop" alt="Luxury Beach Resort in Mozambique" />
+              <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Luxury Beach Villa Interior Design" />
             </motion.div>
           </motion.div>
         </div>
