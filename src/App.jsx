@@ -7,6 +7,7 @@ import PortfolioPage from './components/portfolio/PortfolioPage';
 import BlogPage from './components/blog/BlogPage';
 import ContactPage from './components/contact/ContactPage';
 import QuotingPage from './components/quoting/QuotingPage';
+import BookingPage from './components/booking/BookingPage';
 import ScrollToTop from './components/common/ScrollToTop';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="quote" element={<QuotingPage />} />
+          <Route path="booking" element={<BookingPage />} />
         </Route>
       </Routes>
     </Router>

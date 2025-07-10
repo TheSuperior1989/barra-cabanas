@@ -20,10 +20,10 @@ const Hero = () => {
             Discover exceptional comfort and breathtaking ocean views at Barra Cabanas, Mozambique's premier luxury beach house accommodation.
           </p>
           <div className="hero-buttons">
-            <Link to="/destinations" className="btn btn-primary">
+            <Link to="/services" className="btn btn-primary">
               View Our Properties
             </Link>
-            <Link to="/contact" className="btn btn-secondary">
+            <Link to="/booking" className="btn btn-secondary">
               Book Now
             </Link>
           </div>

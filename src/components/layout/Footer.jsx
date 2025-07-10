@@ -45,7 +45,7 @@ const Footer = () => {
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Accommodation</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/portfolio'); }}>Gallery</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/blog'); }}>Blog</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/quote'); }}>Book Now</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/booking'); }}>Book Now</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/contact'); }}>Contact</a></li>
           </ul>
         </div>

@@ -35,10 +35,10 @@ const ContactCTA = () => {
             Contact us today to book your stay and discover the exceptional comfort and beauty of Barra Cabanas.
           </p>
           <div className="cta-buttons">
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/booking" className="btn btn-primary">
               Book Your Stay
             </Link>
-            <Link to="/destinations" className="btn btn-secondary">
+            <Link to="/services" className="btn btn-secondary">
               View Properties
             </Link>
           </div>
