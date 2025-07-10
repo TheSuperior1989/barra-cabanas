@@ -1,7 +1,12 @@
 .testimonials {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background-color: var(--color-sand-50);
   position: relative;
+}
+
+.testimonials .section-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .testimonials-slider {

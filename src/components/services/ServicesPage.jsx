@@ -63,7 +63,7 @@ const ServiceItem = ({ service, index }) => {
             <li key={i}>{detail}</li>
           ))}
         </ul>
-        <Link to="/contact" className="btn btn-primary">Book Now</Link>
+        <Link to="/booking" className="btn btn-primary">Book Now</Link>
       </motion.div>
       <motion.div className="service-image" variants={itemVariants}>
         <img src={service.image} alt={service.title} />
