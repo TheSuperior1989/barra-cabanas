@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--color-shell-white);
+  background-color: #4a4a4a;
   height: 90px;
   display: flex;
   justify-content: center;
@@ -9,12 +9,12 @@
   width: 100%;
   z-index: 999;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .navbar.scrolled {
-  background-color: var(--color-shell-white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #4a4a4a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-container {
@@ -29,7 +29,7 @@
 }
 
 .navbar-logo {
-  color: var(--text-color-medium);
+  color: var(--color-shell-white);
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 700;
@@ -63,7 +63,7 @@
 
 .menu-icon {
   display: none;
-  color: var(--text-color-medium);
+  color: var(--color-shell-white);
   font-size: 1.8rem;
   cursor: pointer;
   transition: color var(--transition-fast);
@@ -89,7 +89,7 @@
 }
 
 .nav-link {
-  color: var(--text-color-medium);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -102,11 +102,11 @@
 }
 
 .nav-link:hover {
-  color: var(--color-primary-taupe);
+  color: var(--color-shell-white);
 }
 
 .nav-link.active {
-  color: var(--color-primary-taupe);
+  color: var(--color-shell-white);
 }
 
 .nav-link.active::after {
@@ -136,7 +136,7 @@
     left: -100%;
     opacity: 0;
     transition: all 0.3s ease;
-    background-color: #1a1a2e;
+    background-color: #4a4a4a;
     z-index: 998;
     padding-top: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -167,13 +167,13 @@
   }
 
   .nav-link:hover {
-    color: #4361ee !important;
-    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--color-primary-taupe) !important;
+    background-color: rgba(164, 142, 130, 0.1);
   }
 
   .nav-link.active {
-    color: #4361ee !important;
-    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--color-primary-taupe) !important;
+    background-color: rgba(164, 142, 130, 0.1);
   }
 
   .nav-link.active::after {

@@ -90,7 +90,7 @@
   content: '›';
   position: absolute;
   left: 0;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   font-size: 18px;
   line-height: 1;
 }
@@ -134,7 +134,7 @@
   content: '›';
   position: absolute;
   left: 0;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   font-size: 18px;
   line-height: 1;
 }

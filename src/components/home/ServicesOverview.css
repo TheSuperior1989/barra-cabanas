@@ -73,13 +73,13 @@
 .service-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: var(--color-primary-taupe);
+  color: var(--color-shell-white);
   width: 70px;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-sand-200);
+  background-color: var(--color-primary-taupe);
   border-radius: var(--radius-full);
 }
 
