@@ -1,6 +1,6 @@
 .services-overview {
   padding: 100px 0;
-  background-color: #f8f9fa;
+  background-color: var(--color-sand-50);
 }
 
 .container {
@@ -17,10 +17,11 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
+  font-family: var(--font-display);
   margin-bottom: 20px;
   position: relative;
   display: inline-block;
-  color: #1a1a2e;
+  color: var(--color-ocean-900);
 }
 
 .section-title::after {
@@ -31,13 +32,14 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
-  border-radius: 10px;
+  background: var(--gradient-sunset);
+  border-radius: var(--radius-full);
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #666;
+  font-family: var(--font-body);
+  color: var(--color-slate);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -51,59 +53,64 @@
 }
 
 .service-card {
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: var(--color-shell-white);
+  border-radius: var(--radius-lg);
   padding: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-sand-200);
 }
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-coral-sunset);
 }
 
 .service-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #4361ee;
+  color: var(--color-coral-sunset);
   width: 70px;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(67, 97, 238, 0.1);
-  border-radius: 50%;
+  background-color: var(--color-sand-200);
+  border-radius: var(--radius-full);
 }
 
 .service-title {
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-display);
   margin-bottom: 15px;
-  color: #1a1a2e;
+  color: var(--color-ocean-900);
 }
 
 .service-description {
-  color: #666;
+  color: var(--color-slate);
+  font-family: var(--font-body);
   line-height: 1.6;
   margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .service-link {
-  color: #4361ee;
+  color: var(--color-coral-sunset);
   text-decoration: none;
   font-weight: 600;
+  font-family: var(--font-body);
   display: inline-flex;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .service-link:hover {
-  color: #3a86ff;
+  color: var(--color-ocean-blue);
   transform: translateX(5px);
 }
 
@@ -111,10 +118,11 @@
   text-align: center;
   margin-top: 60px;
   padding: 80px 40px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 50%, #34495e 100%);
-  border-radius: 20px;
+  background: var(--gradient-sand);
+  border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
+  border: 2px solid var(--color-warm-sand);
 }
 
 .services-cta::before {
@@ -125,8 +133,8 @@
   right: 0;
   bottom: 0;
   background-image:
-    radial-gradient(circle at 25% 75%, rgba(67, 97, 238, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 75% 25%, rgba(58, 134, 255, 0.15) 0%, transparent 50%);
+    radial-gradient(circle at 25% 75%, rgba(255, 107, 71, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(74, 124, 89, 0.1) 0%, transparent 50%);
   z-index: 1;
 }
 
@@ -148,18 +156,22 @@
 .services-cta .btn {
   position: relative;
   z-index: 2;
-  background: linear-gradient(135deg, #4361ee 0%, #3a86ff 100%) !important;
+  background: var(--gradient-sunset) !important;
   border: none;
   padding: 15px 40px;
   font-size: 1.1rem;
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
-  transition: all 0.3s ease;
+  font-family: var(--font-body);
+  color: var(--color-shell-white);
+  box-shadow: var(--shadow-ocean);
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-full);
 }
 
 .services-cta .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(67, 97, 238, 0.4);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.1);
 }
 
 @keyframes subtleMove {

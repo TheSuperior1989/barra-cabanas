@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faDesktop,
-  faPaintBrush,
-  faCode,
-  faHashtag,
-  faCogs,
-  faChartLine
+  faHome,
+  faUtensils,
+  faConciergeService,
+  faPalette,
+  faCalendarAlt,
+  faSpa
 } from '@fortawesome/free-solid-svg-icons';
 import PlaceholderImage from '../common/PlaceholderImage';
 import { motion } from 'framer-motion';
@@ -15,46 +15,46 @@ import './ServicesOverview.css';
 
 const services = [
   {
-    id: 'cnc',
-    icon: faCogs,
-    title: 'Mill & Lathe CNC Conversions',
-    description: 'Transform traditional machinery into precision CNC equipment with our expert conversion services.',
-    link: '/services#cnc'
+    id: 'accommodation',
+    icon: faHome,
+    title: 'Exclusive Beachfront Accommodation',
+    description: 'Stay in beautifully designed beach houses offering panoramic ocean views, stylish interiors, and premium amenities.',
+    link: '/services#accommodation'
   },
   {
-    id: 'design',
-    icon: faPaintBrush,
-    title: 'Creative Design & Visualization',
-    description: 'Bring your ideas to life with stunning visualizations and creative design solutions.',
-    link: '/services#design'
+    id: 'chef',
+    icon: faUtensils,
+    title: 'Private Chef & Catering Services',
+    description: 'Savor gourmet meals prepared by our in-house chef or enjoy customized catering for special occasions.',
+    link: '/services#chef'
   },
   {
-    id: 'web',
-    icon: faDesktop,
-    title: 'Website Development',
-    description: 'Custom, responsive websites built with modern technologies to showcase your brand.',
-    link: '/services#web'
+    id: 'concierge',
+    icon: faConciergeService,
+    title: 'Concierge & Guest Services',
+    description: 'From private transfers to curated experiences, our concierge team ensures your stay is seamless and unforgettable.',
+    link: '/services#concierge'
   },
   {
-    id: 'graphic',
-    icon: faPaintBrush,
-    title: 'Graphic Design & Branding',
-    description: 'Establish a strong brand identity with professional graphic design services.',
-    link: '/services#graphic'
+    id: 'styling',
+    icon: faPalette,
+    title: 'Interior Styling & Ambience',
+    description: 'Relax in tastefully decorated spaces featuring coastal luxury, hand-picked furnishings, and calming atmospheres.',
+    link: '/services#styling'
   },
   {
-    id: 'social',
-    icon: faHashtag,
-    title: 'Social Media Marketing',
-    description: 'Engage your audience and grow your brand with strategic social media management.',
-    link: '/services#social'
+    id: 'events',
+    icon: faCalendarAlt,
+    title: 'Event Hosting & Venue Hire',
+    description: 'Host intimate events, weddings, or corporate retreats in a stunning beachfront setting tailored to your vision.',
+    link: '/services#events'
   },
   {
-    id: 'software',
-    icon: faCode,
-    title: 'Software Development',
-    description: 'Custom software solutions for web, Android, and iOS platforms.',
-    link: '/services#software'
+    id: 'wellness',
+    icon: faSpa,
+    title: 'Wellness & Leisure Experiences',
+    description: 'Enjoy spa treatments, yoga sessions, or guided beach walks designed to rejuvenate your body and mind.',
+    link: '/services#wellness'
   }
 ];
 
@@ -91,7 +91,7 @@ const ServicesOverview = () => {
         <div className="section-header">
           <h2 className="section-title">Our Services</h2>
           <p className="section-subtitle">
-            We offer a wide range of services to help your business grow and succeed in the digital age.
+            Experience unmatched comfort, elegance, and personalized service at our luxury beachfront retreat.
           </p>
         </div>
 
@@ -118,7 +118,7 @@ const ServicesOverview = () => {
 
         <div className="services-cta">
           <Link to="/services" className="btn btn-primary">
-            View All Services
+            Explore All Services
           </Link>
         </div>
       </div>
