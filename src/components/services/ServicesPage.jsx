@@ -138,7 +138,7 @@ const accommodations = [
     icon: faHome,
     title: 'Exclusive Beachfront Villa',
     description: 'Our most luxurious accommodation with direct beach access and premium amenities.',
-    image: 'https://images.unsplash.com/photo-1520637736862-4d197d17c90a?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=600&h=400&fit=crop',
     price: 'From R3,500 per night',
     details: [
       'Private beachfront location',
