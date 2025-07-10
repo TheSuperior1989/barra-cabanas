@@ -17,35 +17,35 @@
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
   <!-- Company Name -->
-  <text x="600" y="280" 
-        text-anchor="middle" 
-        fill="#ffffff" 
-        font-family="Arial, sans-serif" 
-        font-size="72" 
-        font-weight="bold">SKILLAXIS</text>
-  
-  <text x="600" y="340" 
-        text-anchor="middle" 
-        fill="#ffffff" 
-        font-family="Arial, sans-serif" 
-        font-size="48" 
-        font-weight="normal">DYNAMICS</text>
-  
+  <text x="600" y="280"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="Arial, sans-serif"
+        font-size="72"
+        font-weight="bold">BARRA</text>
+
+  <text x="600" y="340"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="Arial, sans-serif"
+        font-size="48"
+        font-weight="normal">CABANAS</text>
+
   <!-- Tagline -->
-  <text x="600" y="420" 
-        text-anchor="middle" 
-        fill="#ffffff" 
-        font-family="Arial, sans-serif" 
-        font-size="28" 
-        opacity="0.9">CNC Conversions • Web Development • Engineering Solutions</text>
-  
+  <text x="600" y="420"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="Arial, sans-serif"
+        font-size="28"
+        opacity="0.9">Luxury Beach Houses • Premium Accommodation • Ocean Views</text>
+
   <!-- Location -->
-  <text x="600" y="480" 
-        text-anchor="middle" 
-        fill="#ffffff" 
-        font-family="Arial, sans-serif" 
-        font-size="24" 
-        opacity="0.8">South Africa • Pretoria</text>
+  <text x="600" y="480"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="Arial, sans-serif"
+        font-size="24"
+        opacity="0.8">Barra • Mozambique</text>
   
   <!-- Decorative elements -->
   <circle cx="200" cy="150" r="40" fill="#ffffff" opacity="0.1"/>

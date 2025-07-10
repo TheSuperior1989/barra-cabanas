@@ -55,13 +55,13 @@ const AboutPage = () => {
             <motion.div className="about-text" variants={itemVariants}>
               <h2 className="section-title">Our Story</h2>
               <p>
-                SkillAxis Dynamics began as a broad engineering and design service provider, leveraging our founder's expertise in mechanical engineering and digital technology. Over the years, we've evolved to focus on high-value offerings that combine technical precision with creative innovation.
+                Barra Cabanas was born from a vision to create exceptional luxury beach house accommodation in the pristine coastal paradise of Mozambique. Founded by Jaco Ligthelm and his partners, we are dedicated to providing guests with an unforgettable experience of comfort, luxury, and natural beauty.
               </p>
               <p>
-                Our journey has been defined by a commitment to excellence, continuous learning, and adapting to the ever-changing technological landscape. Today, we pride ourselves on delivering solutions that not only meet but exceed our clients' expectations.
+                Our journey began with a passion for Mozambique's stunning coastline and a commitment to sustainable luxury tourism. We believe that true luxury lies not just in premium amenities, but in creating meaningful connections with the natural environment and local community.
               </p>
               <p>
-                What sets us apart is our unique ability to bridge the gap between traditional engineering and modern digital solutions. Whether we're converting a mill to CNC or developing a cutting-edge website, we bring the same level of precision, creativity, and attention to detail to every project.
+                What sets Barra Cabanas apart is our attention to detail, personalized service, and commitment to preserving the natural beauty of Barra while providing world-class accommodation. Each beach house is designed to offer privacy, comfort, and breathtaking ocean views.
               </p>
             </motion.div>
             <motion.div className="about-image" variants={itemVariants}>
@@ -104,7 +104,7 @@ const AboutPage = () => {
         <div className="container">
           <h2 className="section-title">Our Founders</h2>
           <p className="section-subtitle">
-            Meet the visionary founders behind SkillAxis Dynamics
+            Meet the visionary founders behind Barra Cabanas
           </p>
 
           <div className="team-grid">
@@ -112,10 +112,10 @@ const AboutPage = () => {
               <div className="member-icon">
                 <FontAwesomeIcon icon={faUserTie} />
               </div>
-              <h3 className="member-name">Christiaan Von Stade</h3>
-              <p className="member-position">Founder & CEO</p>
+              <h3 className="member-name">Jaco Ligthelm</h3>
+              <p className="member-position">Founder & Managing Director</p>
               <p className="member-bio">
-                With over 15 years of experience in engineering and digital technology, Christiaan leads our team with vision and expertise.
+                With a passion for luxury hospitality and Mozambique's natural beauty, Jaco leads Barra Cabanas with vision and dedication to exceptional guest experiences.
               </p>
             </div>
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import skillAxisLogo from '../../assets/skillaxis-logo.svg';
+import barraCabanasLogo from '../../assets/images/BarraCabanas_Logo_New.svg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -52,7 +52,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <img src={skillAxisLogo} alt="SkillAxis Dynamics" className="logo-image" />
+          <img src={barraCabanasLogo} alt="Barra Cabanas" className="logo-image" />
         </Link>
 
         <div className="menu-icon" onClick={toggleMenu}>

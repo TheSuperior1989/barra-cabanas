@@ -16,9 +16,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3 className="footer-title">SkillAxis Dynamics</h3>
+          <h3 className="footer-title">Barra Cabanas</h3>
           <p className="footer-description">
-            Transforming ideas into digital masterpieces with precision in code and creativity in design.
+            Experience luxury beach house accommodation in Mozambique with exceptional comfort and stunning ocean views.
           </p>
           <div className="social-icons">
             <a href="https://www.facebook.com/profile.php?id=100092689467268" target="_blank" rel="noopener noreferrer" className="social-icon">
@@ -65,16 +65,15 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-title">Contact Us</h3>
           <ul className="footer-links">
-            <li>Email: <a href="mailto:info@skillaxisdynamics.co.za">info@skillaxisdynamics.co.za</a></li>
-            <li>Phone: <a href="tel:+27782964786">+27 78 296 4786</a></li>
-            <li>Phone: <a href="tel:+27824651089">+27 82 465 1089</a></li>
-            <li>Location: South Africa, Pretoria</li>
+            <li>Email: <a href="mailto:info@barracabanas.co.za">info@barracabanas.co.za</a></li>
+            <li>Phone: <a href="tel:+27833793741">+27 83 379 3741</a></li>
+            <li>Location: Barra, Mozambique</li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} SkillAxis Dynamics. All Rights Reserved.</p>
+        <p>&copy; {currentYear} Barra Cabanas. All Rights Reserved.</p>
       </div>
     </footer>
   );

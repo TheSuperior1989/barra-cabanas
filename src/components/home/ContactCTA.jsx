@@ -30,16 +30,16 @@ const ContactCTA = () => {
         className="container"
       >
         <div className="cta-content">
-          <h2 className="cta-title">Ready to Transform Your Ideas into Reality?</h2>
+          <h2 className="cta-title">Ready to Experience Luxury Beach Living?</h2>
           <p className="cta-subtitle">
-            Contact us today to discuss your project and discover how SkillAxis Dynamics can help you achieve your goals.
+            Contact us today to book your stay and discover the exceptional comfort and beauty of Barra Cabanas.
           </p>
           <div className="cta-buttons">
             <Link to="/contact" className="btn btn-primary">
-              Get in Touch
+              Book Your Stay
             </Link>
-            <Link to="/services" className="btn btn-secondary">
-              Explore Services
+            <Link to="/destinations" className="btn btn-secondary">
+              View Properties
             </Link>
           </div>
         </div>

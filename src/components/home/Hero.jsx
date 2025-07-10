@@ -14,17 +14,17 @@ const Hero = () => {
           className="hero-text"
         >
           <h1 className="hero-title">
-            Transforming Ideas into <span className="highlight">Digital Masterpieces</span>
+            Experience Luxury <span className="highlight">Beach House Living</span>
           </h1>
           <p className="hero-subtitle">
-            Precision in code, creativity in design. We bring your vision to life with cutting-edge technology and innovative solutions.
+            Discover exceptional comfort and breathtaking ocean views at Barra Cabanas, Mozambique's premier luxury beach house accommodation.
           </p>
           <div className="hero-buttons">
-            <Link to="/services" className="btn btn-primary">
-              View Our Services
+            <Link to="/destinations" className="btn btn-primary">
+              View Our Properties
             </Link>
             <Link to="/contact" className="btn btn-secondary">
-              Get a Quote
+              Book Now
             </Link>
           </div>
         </motion.div>
