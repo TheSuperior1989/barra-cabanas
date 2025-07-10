@@ -117,7 +117,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
+  background: var(--gradient-taupe);
   border-radius: 10px;
 }
 
@@ -179,12 +179,12 @@
 
 .member-icon svg {
   font-size: 120px;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   transition: all 0.3s ease;
 }
 
 .team-member:hover .member-icon {
-  background: linear-gradient(135deg, #4361ee 0%, #3a86ff 100%);
+  background: var(--gradient-taupe);
 }
 
 .team-member:hover .member-icon svg {
@@ -201,7 +201,7 @@
 
 .member-position {
   font-size: 0.9rem;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   margin-bottom: 15px;
   font-weight: 600;
 }
