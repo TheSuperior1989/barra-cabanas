@@ -92,7 +92,7 @@ const ContactPage = () => {
         <div className="container">
           <h1 className="contact-hero-title">Contact Us</h1>
           <p className="contact-hero-subtitle">
-            Get in touch with our team to discuss your project
+            Get in touch with us to book your perfect beach getaway
           </p>
         </div>
       </div>
@@ -111,8 +111,8 @@ const ContactPage = () => {
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
               </div>
               <h3>Our Location</h3>
-              <p>South Africa</p>
-              <p>Pretoria</p>
+              <p>Barra, Inhambane</p>
+              <p>Mozambique</p>
             </motion.div>
 
             <motion.div className="info-card" variants={itemVariants}>
@@ -120,8 +120,8 @@ const ContactPage = () => {
                 <FontAwesomeIcon icon={faPhone} />
               </div>
               <h3>Phone Number</h3>
-              <p><a href="tel:+27782964786">+27 78 296 4786</a></p>
-              <p><a href="tel:+27824651089">+27 82 465 1089</a></p>
+              <p><a href="tel:+27833793741">+27 83 379 3741</a></p>
+              <p><a href="tel:+258843123456">+258 84 312 3456</a></p>
             </motion.div>
 
             <motion.div className="info-card" variants={itemVariants}>
@@ -129,17 +129,17 @@ const ContactPage = () => {
                 <FontAwesomeIcon icon={faEnvelope} />
               </div>
               <h3>Email Address</h3>
-              <p><a href="mailto:info@skillaxisdynamics.co.za">info@skillaxisdynamics.co.za</a></p>
-              <p><a href="mailto:support@skillaxisdynamics.co.za">support@skillaxisdynamics.co.za</a></p>
+              <p><a href="mailto:info@barracabanas.co.za">info@barracabanas.co.za</a></p>
+              <p><a href="mailto:bookings@barracabanas.co.za">bookings@barracabanas.co.za</a></p>
             </motion.div>
 
             <motion.div className="info-card" variants={itemVariants}>
               <div className="info-icon">
                 <FontAwesomeIcon icon={faClock} />
               </div>
-              <h3>Working Hours</h3>
-              <p>Monday - Friday: 9am - 6pm</p>
-              <p>Saturday: 10am - 2pm</p>
+              <h3>Check-in Hours</h3>
+              <p>Check-in: 2:00 PM - 8:00 PM</p>
+              <p>Check-out: 8:00 AM - 11:00 AM</p>
             </motion.div>
           </motion.div>
         </div>
@@ -149,9 +149,9 @@ const ContactPage = () => {
         <div className="container">
           <div className="form-container">
             <div className="form-header">
-              <h2>Send Us a Message</h2>
+              <h2>Book Your Stay</h2>
               <p>
-                Fill out the form below and we'll get back to you as soon as possible.
+                Fill out the form below to inquire about availability and we'll get back to you as soon as possible.
               </p>
             </div>
 
@@ -203,20 +203,20 @@ const ContactPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="service">Service of Interest</label>
+                  <label htmlFor="service">Accommodation of Interest</label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
                   >
-                    <option value="">Select a Service</option>
-                    <option value="cnc">Mill & Lathe CNC Conversions</option>
-                    <option value="design">Creative Design & Visualization</option>
-                    <option value="web">Website Development</option>
-                    <option value="graphic">Graphic Design & Branding</option>
-                    <option value="social">Social Media Marketing</option>
-                    <option value="software">Software Development</option>
+                    <option value="">Select Accommodation</option>
+                    <option value="seaview">Seaview Cabana</option>
+                    <option value="family">Luxury Family Cabana</option>
+                    <option value="honeymoon">Honeymoon Suite</option>
+                    <option value="ocean-breeze">Ocean Breeze Bungalow</option>
+                    <option value="beachfront-villa">Exclusive Beachfront Villa</option>
+                    <option value="general">General Inquiry</option>
                   </select>
                 </div>
 
