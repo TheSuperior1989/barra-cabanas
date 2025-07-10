@@ -72,12 +72,12 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <Link to="/services" className={location.pathname === '/services' ? 'nav-link active' : 'nav-link'}>
-              Services
+              Accommodation
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/portfolio" className={location.pathname === '/portfolio' ? 'nav-link active' : 'nav-link'}>
-              Portfolio
+              Gallery
             </Link>
           </li>
           <li className="nav-item">
@@ -87,7 +87,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <Link to="/quote" className={location.pathname === '/quote' ? 'nav-link active' : 'nav-link'}>
-              Get a Quote
+              Book Now
             </Link>
           </li>
           <li className="nav-item">

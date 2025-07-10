@@ -41,24 +41,23 @@ const Footer = () => {
           <ul className="footer-links">
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/'); }}>Home</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/about'); }}>About Us</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Services</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/portfolio'); }}>Portfolio</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Accommodation</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/portfolio'); }}>Gallery</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/blog'); }}>Blog</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/quote'); }}>Get a Quote</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/quote'); }}>Book Now</a></li>
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/contact'); }}>Contact</a></li>
           </ul>
         </div>
 
         <div className="footer-section">
-          <h3 className="footer-title">Services</h3>
+          <h3 className="footer-title">Accommodation</h3>
           <ul className="footer-links">
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Mill and Lathe CNC Conversions</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Engineering Design Services</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Creative Design & Visualization</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Website Development</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Graphic Design & Branding</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Social Media Marketing</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Software Development</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Luxury Beach Houses</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Ocean View Properties</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Private Beach Access</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Premium Amenities</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Concierge Services</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Activities & Excursions</a></li>
           </ul>
         </div>
 
