@@ -47,7 +47,7 @@
 /* Popular Service Highlight */
 .popular-service-highlight {
   padding: 60px 0;
-  background: linear-gradient(135deg, #4361ee 0%, #3a86ff 100%);
+  background: linear-gradient(135deg, var(--color-primary-taupe) 0%, #b4a096 100%);
   color: white;
 }
 
@@ -119,7 +119,7 @@
 
 .popular-cta {
   background: white !important;
-  color: #4361ee !important;
+  color: var(--color-primary-taupe) !important;
   font-weight: 700;
   padding: 15px 40px;
   font-size: 1.1rem;
@@ -130,7 +130,7 @@
 .popular-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  color: #4361ee !important;
+  color: var(--color-primary-taupe) !important;
 }
 
 .services-intro {
@@ -160,7 +160,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
+  background: var(--gradient-taupe);
   border-radius: 10px;
 }
 
@@ -200,13 +200,13 @@
 .service-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #4361ee;
+  color: var(--color-shell-white);
   width: 70px;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(67, 97, 238, 0.1);
+  background-color: var(--color-primary-taupe);
   border-radius: 50%;
 }
 
@@ -242,7 +242,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   font-weight: bold;
 }
 
