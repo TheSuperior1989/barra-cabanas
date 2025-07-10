@@ -44,6 +44,20 @@
   margin: 0 auto;
 }
 
+.gallery-intro {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.gallery-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .portfolio-content {
   padding: 80px 0;
   background-color: #f8f9fa;
@@ -70,15 +84,15 @@
 }
 
 .filter-btn:hover {
-  background-color: rgba(67, 97, 238, 0.1);
-  color: #4361ee;
-  border-color: #4361ee;
+  background-color: rgba(164, 142, 130, 0.1);
+  color: var(--color-primary-taupe);
+  border-color: var(--color-primary-taupe);
 }
 
 .filter-btn.active {
-  background-color: #4361ee;
+  background-color: var(--color-primary-taupe);
   color: #fff;
-  border-color: #4361ee;
+  border-color: var(--color-primary-taupe);
 }
 
 .portfolio-grid {
