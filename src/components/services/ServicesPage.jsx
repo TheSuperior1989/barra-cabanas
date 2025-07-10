@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faDesktop,
-  faPaintBrush,
-  faCode,
-  faHashtag,
-  faCogs
+  faHome,
+  faHeart,
+  faUsers,
+  faBed,
+  faStar,
+  faUmbrellaBeach
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -56,12 +57,13 @@ const ServiceItem = ({ service, index }) => {
         </div>
         <h2 className="service-title">{service.title}</h2>
         <p className="service-description">{service.description}</p>
+        {service.price && <p className="service-price">{service.price}</p>}
         <ul className="service-details">
           {service.details.map((detail, i) => (
             <li key={i}>{detail}</li>
           ))}
         </ul>
-        <Link to="/quote" className="btn btn-primary">Request a Quote</Link>
+        <Link to="/contact" className="btn btn-primary">Book Now</Link>
       </motion.div>
       <motion.div className="service-image" variants={itemVariants}>
         <img src={service.image} alt={service.title} />
@@ -70,89 +72,80 @@ const ServiceItem = ({ service, index }) => {
   );
 };
 
-const services = [
+const accommodations = [
   {
-    id: 'cnc',
-    icon: faCogs,
-    title: 'Mill & Lathe CNC Conversions',
-    description: 'Transform traditional machinery into precision CNC equipment with our expert conversion services.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
+    id: 'family-cabana',
+    icon: faUsers,
+    title: 'Luxury Family Cabana',
+    description: 'Spacious comfort for families or small groups. Sleeps 4–6 guests with all the amenities for a perfect family getaway.',
+    image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop',
+    price: 'From R2,400 per night',
     details: [
-      'Complete retrofitting of manual mills and lathes to CNC operation',
-      'Custom software integration for specific manufacturing needs',
-      'Training and support for operators transitioning to CNC systems',
-      'Ongoing maintenance and troubleshooting services',
-      'Performance optimization for maximum efficiency'
+      '2 Bedrooms + sleeper couch',
+      'Fully equipped kitchen & dining area',
+      'Outdoor braai (BBQ) facilities',
+      'Private garden and beach access',
+      'Complimentary Wi-Fi'
     ]
   },
   {
-    id: 'design',
-    icon: faPaintBrush,
-    title: 'Creative Design & Visualization',
-    description: 'Bring your ideas to life with stunning visualizations and creative design solutions.',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop',
+    id: 'honeymoon-suite',
+    icon: faHeart,
+    title: 'Honeymoon Suite',
+    description: 'Intimate and secluded with stunning sunset views. Perfect for couples and special celebrations.',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop',
+    price: 'From R2,100 per night',
     details: [
-      '3D modeling and rendering for product visualization',
-      'Concept development and prototyping',
-      'Technical illustrations and diagrams',
-      'Virtual reality (VR) and augmented reality (AR) experiences',
-      'Interactive product demonstrations'
+      'Romantic four-poster bed',
+      'Private plunge pool or outdoor bath (select units)',
+      'Complimentary bottle of champagne',
+      'Custom mood lighting and luxury linens',
+      'Late check-out available on request'
     ]
   },
   {
-    id: 'web',
-    icon: faDesktop,
-    title: 'Website Development',
-    description: 'Custom, responsive websites built with modern technologies to showcase your brand.',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
+    id: 'ocean-breeze',
+    icon: faUmbrellaBeach,
+    title: 'Ocean Breeze Bungalow',
+    description: 'Budget-friendly without compromising style or comfort. Simple. Elegant. Refreshing.',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop',
+    price: 'From R1,200 per night',
     details: [
-      'Custom website design and development',
-      'E-commerce solutions with secure payment processing',
-      'Content management system (CMS) integration',
-      'Responsive design for all devices',
-      'Website maintenance and support'
+      'Queen-size bed and en-suite bathroom',
+      'Outdoor kitchenette and dining space',
+      'Ideal for solo travelers or couples on a getaway',
+      '50m from the beach',
+      'Daily housekeeping included'
     ]
   },
   {
-    id: 'graphic',
-    icon: faPaintBrush,
-    title: 'Graphic Design & Branding',
-    description: 'Establish a strong brand identity with professional graphic design services.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+    id: 'premium-services',
+    icon: faStar,
+    title: 'Premium Add-On Services',
+    description: 'Enhance your stay with optional luxury services and experiences.',
+    image: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=600&h=400&fit=crop',
+    price: 'Custom pricing available',
     details: [
-      'Logo design and brand identity development',
-      'Marketing materials (brochures, business cards, etc.)',
-      'Packaging design',
-      'Social media graphics and templates',
-      'Brand style guides and visual standards'
+      'Private Chef / Meal Catering',
+      'Sunset Dhow Cruises',
+      'Airport Transfers from Inhambane',
+      'Massage & Spa Services',
+      'Local Guided Tours (snorkeling, diving, etc.)'
     ]
   },
   {
-    id: 'social',
-    icon: faHashtag,
-    title: 'Social Media Marketing',
-    description: 'Engage your audience and grow your brand with strategic social media management.',
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
+    id: 'beachfront-villa',
+    icon: faHome,
+    title: 'Exclusive Beachfront Villa',
+    description: 'Our most luxurious accommodation with direct beach access and premium amenities.',
+    image: 'https://images.unsplash.com/photo-1520637736862-4d197d17c90a?w=600&h=400&fit=crop',
+    price: 'From R3,500 per night',
     details: [
-      'Social media strategy development',
-      'Content creation and scheduling',
-      'Community management and engagement',
-      'Social media advertising campaigns',
-      'Performance analytics and reporting'
-    ]
-  },
-  {
-    id: 'software',
-    icon: faCode,
-    title: 'Software Development',
-    description: 'Custom software solutions for web, Android, and iOS platforms.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
-    details: [
-      'Web application development',
-      'Mobile app development for iOS and Android',
-      'Custom software solutions for specific business needs',
-      'API development and integration',
-      'Software maintenance and updates'
+      'Private beachfront location',
+      '3 bedrooms with ocean views',
+      'Full kitchen and living area',
+      'Private pool and outdoor entertainment area',
+      'Dedicated concierge service'
     ]
   }
 ];
@@ -177,9 +170,9 @@ const ServicesPage = () => {
       <div className="services-hero">
         <div className="services-hero-overlay"></div>
         <div className="container">
-          <h1 className="services-hero-title">Our Services</h1>
+          <h1 className="services-hero-title">Our Accommodation</h1>
           <p className="services-hero-subtitle">
-            Comprehensive solutions tailored to your specific needs
+            Luxury Beachfront Living – Tailored for Your Perfect Escape
           </p>
         </div>
       </div>
@@ -188,20 +181,21 @@ const ServicesPage = () => {
         <div className="container">
           <div className="popular-service-card">
             <div className="popular-badge">⭐ MOST POPULAR</div>
-            <h2>Single Page Website - Only R1,500!</h2>
-            <p>Perfect for small businesses and startups! Get a professional, mobile-responsive single-page website that showcases your business essentials.</p>
+            <h2>Seaview Cabana – From R1,500 per night!</h2>
+            <p>Wake up to the sound of the waves and breathtaking views of the Indian Ocean. This elegant, fully equipped cabana is perfect for couples or solo travelers seeking peace, privacy, and style.</p>
             <div className="popular-features">
-              <div className="feature">✓ Modern, Professional Design</div>
-              <div className="feature">✓ Mobile Responsive</div>
-              <div className="feature">✓ Contact Form Integration</div>
-              <div className="feature">✓ Basic SEO Optimization</div>
-              <div className="feature">✓ Fast Loading & Secure</div>
+              <div className="feature">✓ King-size bed with ocean views</div>
+              <div className="feature">✓ Private deck and outdoor seating</div>
+              <div className="feature">✓ Air conditioning & mosquito nets</div>
+              <div className="feature">✓ En-suite bathroom with walk-in shower</div>
+              <div className="feature">✓ Kitchenette with fridge, microwave & kettle</div>
+              <div className="feature">✓ Daily servicing & secure parking</div>
             </div>
             <div className="popular-price">
-              <span className="price">R1,500</span>
-              <span className="price-note">One-time payment</span>
+              <span className="price">R1,500 / night</span>
+              <span className="price-note">All-inclusive – No hidden fees</span>
             </div>
-            <Link to="/quote" className="btn btn-primary popular-cta">Get Your Website Today!</Link>
+            <Link to="/contact" className="btn btn-primary popular-cta">Book Your Stay Now</Link>
           </div>
         </div>
       </section>
@@ -209,12 +203,12 @@ const ServicesPage = () => {
       <section className="services-intro">
         <div className="container">
           <div className="intro-content">
-            <h2>How We Can Help You</h2>
+            <h2>How We Make Your Stay Special</h2>
             <p>
-              At SkillAxis Dynamics, we offer a wide range of services designed to help your business thrive in today's competitive landscape. From engineering solutions to digital marketing, our team of experts is committed to delivering high-quality results that exceed your expectations.
+              At Barra Cabanas, every stay is more than just a holiday — it's a curated experience of barefoot luxury. Whether you're seeking relaxation, romance, or adventure, our wide range of accommodation options and personalized guest services ensure that every moment is memorable.
             </p>
             <p>
-              Each service is customized to meet your specific needs and goals, ensuring that you receive the most effective solution for your business. Explore our services below to learn more about how we can help you succeed.
+              All stays include access to the beach, lush gardens, and optional concierge services for local excursions and amenities. Explore our accommodation options below to find your perfect escape.
             </p>
           </div>
         </div>
@@ -222,7 +216,7 @@ const ServicesPage = () => {
 
       <section className="services-list">
         <div className="container">
-          {services.map((service, index) => (
+          {accommodations.map((service, index) => (
             <ServiceItem key={service.id} service={service} index={index} />
           ))}
         </div>
@@ -231,11 +225,11 @@ const ServicesPage = () => {
       <section className="services-cta">
         <div className="container">
           <div className="cta-content">
-            <h2>Ready to Get Started?</h2>
+            <h2>Ready to Escape to Paradise?</h2>
             <p>
-              Contact us today to discuss your project and discover how SkillAxis Dynamics can help you achieve your goals.
+              Contact us today to book your ideal cabana or get help planning the perfect tropical escape to Mozambique.
             </p>
-            <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+            <Link to="/contact" className="btn btn-primary">Book Your Stay</Link>
           </div>
         </div>
       </section>
