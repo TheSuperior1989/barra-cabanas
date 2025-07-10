@@ -16,7 +16,7 @@ Barra Cabanas provides premium beachfront properties in the beautiful coastal pa
 
 ## Contact
 
-- **Email:** info@barracabanas.co.za
+- **Email:** info@barracabanas.com
 - **Phone:** +27 83 379 3741
 - **Location:** Barra, Mozambique
 

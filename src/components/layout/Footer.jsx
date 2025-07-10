@@ -65,7 +65,7 @@ const Footer = () => {
         <div className="footer-section footer-links-col">
           <h3 className="footer-title">Contact Us</h3>
           <ul className="footer-links">
-            <li>Email: <a href="mailto:info@barracabanas.co.za">info@barracabanas.co.za</a></li>
+            <li>Email: <a href="mailto:info@barracabanas.com">info@barracabanas.com</a></li>
             <li>Phone: <a href="tel:+27833793741">+27 83 379 3741</a></li>
             <li>Location: Barra, Mozambique</li>
           </ul>

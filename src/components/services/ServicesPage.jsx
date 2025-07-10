@@ -208,7 +208,7 @@ const ServicesPage = () => {
             <p>
               Contact us today to book your ideal cabana or get help planning the perfect tropical escape to Mozambique.
             </p>
-            <Link to="/contact" className="btn btn-primary">Book Your Stay</Link>
+            <Link to="/booking" className="btn btn-primary">Book Your Stay</Link>
           </div>
         </div>
       </section>

@@ -129,8 +129,8 @@ const ContactPage = () => {
                 <FontAwesomeIcon icon={faEnvelope} />
               </div>
               <h3>Email Address</h3>
-              <p><a href="mailto:info@barracabanas.co.za">info@barracabanas.co.za</a></p>
-              <p><a href="mailto:bookings@barracabanas.co.za">bookings@barracabanas.co.za</a></p>
+              <p><a href="mailto:info@barracabanas.com">info@barracabanas.com</a></p>
+              <p><a href="mailto:bookings@barracabanas.com">bookings@barracabanas.com</a></p>
             </motion.div>
 
             <motion.div className="info-card" variants={itemVariants}>

@@ -153,7 +153,7 @@
 .view-project {
   display: inline-block;
   padding: 12px 30px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
+  background: var(--gradient-taupe);
   color: #fff;
   text-decoration: none;
   border-radius: 50px;
@@ -173,7 +173,7 @@
 .portfolio-category {
   display: inline-block;
   font-size: 0.9rem;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   font-weight: 600;
   margin-bottom: 10px;
 }
