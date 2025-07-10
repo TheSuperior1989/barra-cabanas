@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
   faUtensils,
-  faConciergeService,
+  faBell,
   faPalette,
   faCalendarAlt,
   faSpa
@@ -30,7 +30,7 @@ const services = [
   },
   {
     id: 'concierge',
-    icon: faConciergeService,
+    icon: faBell,
     title: 'Concierge & Guest Services',
     description: 'From private transfers to curated experiences, our concierge team ensures your stay is seamless and unforgettable.',
     link: '/services#concierge'
