@@ -177,28 +177,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <section className="popular-service-highlight">
-        <div className="container">
-          <div className="popular-service-card">
-            <div className="popular-badge">⭐ MOST POPULAR</div>
-            <h2>Seaview Cabana – From R1,500 per night!</h2>
-            <p>Wake up to the sound of the waves and breathtaking views of the Indian Ocean. This elegant, fully equipped cabana is perfect for couples or solo travelers seeking peace, privacy, and style.</p>
-            <div className="popular-features">
-              <div className="feature">✓ King-size bed with ocean views</div>
-              <div className="feature">✓ Private deck and outdoor seating</div>
-              <div className="feature">✓ Air conditioning & mosquito nets</div>
-              <div className="feature">✓ En-suite bathroom with walk-in shower</div>
-              <div className="feature">✓ Kitchenette with fridge, microwave & kettle</div>
-              <div className="feature">✓ Daily servicing & secure parking</div>
-            </div>
-            <div className="popular-price">
-              <span className="price">R1,500 / night</span>
-              <span className="price-note">All-inclusive – No hidden fees</span>
-            </div>
-            <Link to="/contact" className="btn btn-primary popular-cta">Book Your Stay Now</Link>
-          </div>
-        </div>
-      </section>
+
 
       <section className="services-intro">
         <div className="container">
