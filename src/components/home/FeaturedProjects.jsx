@@ -3,31 +3,31 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './FeaturedProjects.css';
 
-// Sample projects data (in a real app, this would come from an API or CMS)
-const projects = [
+// Sample beach houses data (in a real app, this would come from an API or CMS)
+const houses = [
   {
     id: 1,
-    title: 'CNC Mill Conversion',
-    category: 'Engineering',
-    image: 'https://www.zintilon.com/wp-content/webp-express/webp-images/uploads/2023/11/Large-finely-toothed-metal-gear-positioned-on-a-CNC-machine-bed-with-blue-coolant-tubes-nearby.jpg.webp',
-    description: 'Conversion of a traditional mill to a fully automated CNC system with custom software integration.',
-    link: '/portfolio/cnc-mill-conversion'
+    title: 'The Ocean Pearl',
+    category: 'Luxury Villa',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop',
+    description: 'A modern coastal escape with floor-to-ceiling sea views, an infinity pool, and private beach access.',
+    link: '/houses/ocean-pearl'
   },
   {
     id: 2,
-    title: 'E-Commerce Website',
-    category: 'Web Development',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-    description: 'Custom e-commerce platform with integrated payment processing and inventory management.',
-    link: '/portfolio/ecommerce-website'
+    title: 'Coral Breeze',
+    category: 'Family Beach House',
+    image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop',
+    description: 'Spacious and serene, perfect for families, featuring multiple bedrooms, outdoor dining, and a private garden with sea breeze views.',
+    link: '/houses/coral-breeze'
   },
   {
     id: 3,
-    title: 'Brand Identity Design',
-    category: 'Graphic Design',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-    description: 'Complete brand identity package including logo, color palette, typography, and brand guidelines.',
-    link: '/portfolio/brand-identity'
+    title: 'Sunset Cove',
+    category: 'Romantic Retreat',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop',
+    description: 'An intimate hideaway ideal for couples, with a private jacuzzi, open-plan living, and breathtaking sunset views from the deck.',
+    link: '/houses/sunset-cove'
   }
 ];
 
@@ -59,12 +59,12 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section className="featured-projects" id="projects">
+    <section className="featured-projects" id="houses">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title">Featured Houses</h2>
           <p className="section-subtitle">
-            Take a look at some of our recent work that showcases our expertise and creativity.
+            Discover a selection of our most stunning beachfront accommodations — each uniquely styled for unforgettable stays.
           </p>
         </div>
 
@@ -75,28 +75,28 @@ const FeaturedProjects = () => {
           animate={inView ? 'visible' : 'hidden'}
           className="projects-grid"
         >
-          {projects.map((project) => (
-            <motion.div key={project.id} className="project-card" variants={itemVariants}>
+          {houses.map((house) => (
+            <motion.div key={house.id} className="project-card" variants={itemVariants}>
               <div className="project-image">
-                <img src={project.image} alt={project.title} />
+                <img src={house.image} alt={house.title} />
                 <div className="project-overlay">
-                  <Link to={project.link} className="project-link">
-                    View Project
+                  <Link to={house.link} className="project-link">
+                    View House
                   </Link>
                 </div>
               </div>
               <div className="project-content">
-                <span className="project-category">{project.category}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
+                <span className="project-category">{house.category}</span>
+                <h3 className="project-title">{house.title}</h3>
+                <p className="project-description">{house.description}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
         <div className="projects-cta">
-          <Link to="/portfolio" className="btn btn-primary">
-            View All Projects
+          <Link to="/services" className="btn btn-primary">
+            View All Houses
           </Link>
         </div>
       </div>
