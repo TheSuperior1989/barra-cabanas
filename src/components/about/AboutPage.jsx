@@ -36,9 +36,9 @@ const AboutPage = () => {
       <div className="about-hero">
         <div className="about-hero-overlay"></div>
         <div className="container">
-          <h1 className="about-hero-title">About SkillAxis Dynamics</h1>
+          <h1 className="about-hero-title">About Barra Cabanas</h1>
           <p className="about-hero-subtitle">
-            Blending engineering precision with creative digital solutions
+            Where barefoot luxury meets the untouched beauty of Mozambique
           </p>
         </div>
       </div>
@@ -55,17 +55,17 @@ const AboutPage = () => {
             <motion.div className="about-text" variants={itemVariants}>
               <h2 className="section-title">Our Story</h2>
               <p>
-                Barra Cabanas was born from a vision to create exceptional luxury beach house accommodation in the pristine coastal paradise of Mozambique. Founded by Jaco Ligthelm and his partners, we are dedicated to providing guests with an unforgettable experience of comfort, luxury, and natural beauty.
+                Barra Cabanas was born from a deep love for the Mozambican coastline and a dream to share its magic with the world. Founded by Jaco Ligthelm and his partner Mariska van der Merwe, our journey began as a passion project — a way to blend luxury, nature, and authentic Mozambican charm into one unforgettable destination.
               </p>
               <p>
-                Our journey began with a passion for Mozambique's stunning coastline and a commitment to sustainable luxury tourism. We believe that true luxury lies not just in premium amenities, but in creating meaningful connections with the natural environment and local community.
+                From humble beginnings, we've grown into a collection of exclusive beachfront homes nestled along the golden shores of Barra, a tropical paradise just outside Inhambane. Each cabana is designed to reflect the spirit of the ocean — tranquil, refined, and in harmony with its surroundings.
               </p>
               <p>
-                What sets Barra Cabanas apart is our attention to detail, personalized service, and commitment to preserving the natural beauty of Barra while providing world-class accommodation. Each beach house is designed to offer privacy, comfort, and breathtaking ocean views.
+                We believe true luxury lies in simplicity, serenity, and a deep connection with nature. Whether you're here for romance, adventure, or pure relaxation, Barra Cabanas offers a sanctuary where you can unwind in style and reconnect with what matters most.
               </p>
             </motion.div>
             <motion.div className="about-image" variants={itemVariants}>
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Modern Technology Workspace" />
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop" alt="Luxury Beach Resort in Mozambique" />
             </motion.div>
           </motion.div>
         </div>
@@ -77,23 +77,23 @@ const AboutPage = () => {
             <div className="mission-box">
               <h3>Our Mission</h3>
               <p>
-                To deliver innovative, high-quality solutions that empower our clients to succeed in an increasingly digital world, by combining technical expertise with creative thinking.
+                To provide world-class beachfront accommodation that celebrates Mozambique's natural beauty, promotes local culture, and delivers personalized, unforgettable guest experiences.
               </p>
             </div>
             <div className="mission-box">
               <h3>Our Vision</h3>
               <p>
-                To be the premier provider of integrated engineering and digital services, known for excellence, innovation, and client satisfaction.
+                To be Mozambique's leading luxury beach house destination, known for excellence, sustainability, and heartfelt hospitality.
               </p>
             </div>
             <div className="mission-box">
               <h3>Our Values</h3>
               <ul>
-                <li>Excellence in everything we do</li>
-                <li>Innovation that drives results</li>
-                <li>Integrity in all our interactions</li>
-                <li>Collaboration with clients and partners</li>
-                <li>Continuous learning and improvement</li>
+                <li>Authenticity – Honoring local culture and environment</li>
+                <li>Excellence – Attention to every detail</li>
+                <li>Sustainability – Protecting what makes Barra special</li>
+                <li>Warmth – Genuine, personalized hospitality</li>
+                <li>Elegance – Understated, timeless design</li>
               </ul>
             </div>
           </div>
@@ -104,7 +104,7 @@ const AboutPage = () => {
         <div className="container">
           <h2 className="section-title">Our Founders</h2>
           <p className="section-subtitle">
-            Meet the visionary founders behind Barra Cabanas
+            Meet the visionaries behind the dream
           </p>
 
           <div className="team-grid">
@@ -115,7 +115,7 @@ const AboutPage = () => {
               <h3 className="member-name">Jaco Ligthelm</h3>
               <p className="member-position">Founder & Managing Director</p>
               <p className="member-bio">
-                With a passion for luxury hospitality and Mozambique's natural beauty, Jaco leads Barra Cabanas with vision and dedication to exceptional guest experiences.
+                Jaco's love for Mozambique, paired with his dedication to hospitality, drives the spirit of Barra Cabanas. His focus on guest satisfaction and community upliftment sets the tone for every experience we offer.
               </p>
             </div>
 
@@ -123,10 +123,10 @@ const AboutPage = () => {
               <div className="member-icon">
                 <FontAwesomeIcon icon={faUser} />
               </div>
-              <h3 className="member-name">Sure Von Stade</h3>
+              <h3 className="member-name">Mariska van der Merwe</h3>
               <p className="member-position">Co-Founder & Creative Director</p>
               <p className="member-bio">
-                Sure brings creative flair and design expertise to every project, ensuring our solutions are both functional and beautiful.
+                Mariska brings a refined design sensibility to Barra Cabanas, blending local textures and modern comfort to create interiors that are both luxurious and welcoming.
               </p>
             </div>
           </div>
