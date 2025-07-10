@@ -31,37 +31,40 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--color-coral-sunset);
+  color: var(--color-primary-taupe);
   transition: color var(--transition-normal);
 }
 
 a:hover {
-  color: var(--color-ocean-blue);
+  color: var(--color-text-dark);
 }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: 600;
+  padding: 0.92857rem 1.57143rem;  /* ~13px top/bottom, ~22px left/right */
+  border-radius: 999rem;           /* Fully rounded (pill shape) */
+  font-weight: 700;                /* Bold */
+  font-size: 1.07143rem;           /* ~15px */
+  letter-spacing: 0.6px;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  border: none;
+  font-family: var(--font-body);
 }
 
 .btn-primary {
-  background: var(--gradient-sunset);
-  color: var(--color-shell-white);
-  border: none;
+  background-color: var(--color-primary-taupe) !important;
+  color: var(--color-shell-white) !important;
+  fill: var(--color-shell-white) !important;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl);
-  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(164, 142, 130, 0.3);
+  filter: brightness(1.05);
 }
 
 .btn-secondary {
@@ -94,7 +97,7 @@ a:hover {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: var(--gradient-sunset);
+  background: var(--gradient-taupe);
   border-radius: var(--radius-full);
 }
 

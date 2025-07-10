@@ -45,7 +45,7 @@
 }
 
 .hero-title .highlight {
-  background: var(--gradient-sunset);
+  background: var(--gradient-taupe);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -76,15 +76,15 @@
 }
 
 .btn-primary {
-  background: var(--gradient-sunset);
-  color: var(--color-shell-white);
+  background-color: var(--color-primary-taupe) !important;
+  color: var(--color-shell-white) !important;
   border: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl);
-  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(164, 142, 130, 0.3);
+  filter: brightness(1.05);
 }
 
 .btn-secondary {
@@ -95,8 +95,8 @@
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
-  border-color: var(--color-coral-sunset);
+  transform: translateY(-2px);
+  border-color: var(--color-primary-taupe);
 }
 
 @media screen and (max-width: 768px) {

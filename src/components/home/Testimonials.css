@@ -23,7 +23,7 @@
 
 .quote-icon {
   font-size: 2rem;
-  color: var(--color-coral-sunset);
+  color: var(--color-primary-taupe);
   opacity: 0.3;
   margin-bottom: 20px;
 }
@@ -49,7 +49,7 @@
   border-radius: var(--radius-full);
   overflow: hidden;
   margin-right: 15px;
-  border: 3px solid var(--color-coral-sunset);
+  border: 3px solid var(--color-primary-taupe);
 }
 
 .author-image img {
@@ -73,7 +73,7 @@
 .author-position {
   font-size: 0.9rem;
   font-family: var(--font-body);
-  color: var(--color-coral-sunset);
+  color: var(--color-primary-taupe);
 }
 
 .testimonial-controls {
@@ -98,9 +98,9 @@
 }
 
 .control-btn:hover {
-  background-color: var(--color-coral-sunset);
+  background-color: var(--color-primary-taupe);
   color: var(--color-shell-white);
-  border-color: var(--color-coral-sunset);
+  border-color: var(--color-primary-taupe);
 }
 
 .testimonial-dots {
@@ -120,7 +120,7 @@
 }
 
 .dot.active {
-  background-color: var(--color-coral-sunset);
+  background-color: var(--color-primary-taupe);
   transform: scale(1.3);
 }
 

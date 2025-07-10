@@ -1,11 +1,11 @@
 /* Barra Cabanas Brand Colors - Ocean & Sand Theme */
 :root {
-  /* Primary Brand Colors - Ocean & Sand Theme */
-  --color-ocean-blue: #006994;
+  /* Primary Brand Colors - Warm Taupe Theme */
+  --color-primary-taupe: #a48e82;
   --color-sandy-beige: #F5E6D3;
-  --color-coral-sunset: #FF6B47;
+  --color-text-dark: #2f3941;
   --color-palm-green: #4A7C59;
-  --color-shell-white: #FEFEFE;
+  --color-shell-white: #FFFFFF;
   
   /* Secondary Palette */
   --color-deep-teal: #004B5C;
@@ -21,13 +21,14 @@
   --color-cloud: #F8F9FA;
   
   /* Gradients */
-  --gradient-ocean: linear-gradient(135deg, #006994 0%, #004B5C 100%);
-  --gradient-sunset: linear-gradient(135deg, #FF6B47 0%, #FF8E53 100%);
+  --gradient-taupe: linear-gradient(135deg, #a48e82 0%, #8b7a6f 100%);
+  --gradient-taupe-light: linear-gradient(135deg, #b59d91 0%, #a48e82 100%);
   --gradient-sand: linear-gradient(135deg, #F5E6D3 0%, #E8D5B7 100%);
   
   /* Typography */
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen-Sans', Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Poppins', var(--font-system);
+  --font-body: var(--font-system);
   --font-accent: 'Dancing Script', cursive;
   
   /* Spacing Scale */
@@ -60,28 +61,28 @@
   --transition-slow: 0.5s ease-in-out;
 }
 
-/* Ocean Color Scale */
-.ocean-50 { color: #E6F3F8; }
-.ocean-100 { color: #CCE7F1; }
-.ocean-200 { color: #99CFE3; }
-.ocean-300 { color: #66B7D5; }
-.ocean-400 { color: #339FC7; }
-.ocean-500 { color: #006994; }
-.ocean-600 { color: #005477; }
-.ocean-700 { color: #003F5A; }
-.ocean-800 { color: #002A3C; }
-.ocean-900 { color: #00151E; }
+/* Taupe Color Scale */
+.taupe-50 { color: #f7f5f4; }
+.taupe-100 { color: #ede8e5; }
+.taupe-200 { color: #ddd4ce; }
+.taupe-300 { color: #c8b8af; }
+.taupe-400 { color: #b59d91; }
+.taupe-500 { color: #a48e82; }
+.taupe-600 { color: #8b7a6f; }
+.taupe-700 { color: #6f635a; }
+.taupe-800 { color: #5a4f47; }
+.taupe-900 { color: #463d37; }
 
-.bg-ocean-50 { background-color: #E6F3F8; }
-.bg-ocean-100 { background-color: #CCE7F1; }
-.bg-ocean-200 { background-color: #99CFE3; }
-.bg-ocean-300 { background-color: #66B7D5; }
-.bg-ocean-400 { background-color: #339FC7; }
-.bg-ocean-500 { background-color: #006994; }
-.bg-ocean-600 { background-color: #005477; }
-.bg-ocean-700 { background-color: #003F5A; }
-.bg-ocean-800 { background-color: #002A3C; }
-.bg-ocean-900 { background-color: #00151E; }
+.bg-taupe-50 { background-color: #f7f5f4; }
+.bg-taupe-100 { background-color: #ede8e5; }
+.bg-taupe-200 { background-color: #ddd4ce; }
+.bg-taupe-300 { background-color: #c8b8af; }
+.bg-taupe-400 { background-color: #b59d91; }
+.bg-taupe-500 { background-color: #a48e82; }
+.bg-taupe-600 { background-color: #8b7a6f; }
+.bg-taupe-700 { background-color: #6f635a; }
+.bg-taupe-800 { background-color: #5a4f47; }
+.bg-taupe-900 { background-color: #463d37; }
 
 /* Sand Color Scale */
 .sand-50 { color: #FEFCFA; }

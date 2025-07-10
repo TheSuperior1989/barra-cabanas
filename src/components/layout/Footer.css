@@ -1,5 +1,5 @@
 .footer {
-  background: var(--gradient-ocean);
+  background: var(--gradient-taupe);
   color: var(--color-shell-white);
   padding: 60px 0 20px;
 }
@@ -34,8 +34,9 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: var(--gradient-sunset);
+  background: var(--color-shell-white);
   border-radius: var(--radius-full);
+  opacity: 0.7;
 }
 
 .footer-description {

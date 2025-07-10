@@ -51,7 +51,7 @@
 }
 
 .logo-text {
-  background: var(--gradient-ocean);
+  background: var(--gradient-taupe);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -68,7 +68,7 @@
 }
 
 .menu-icon:hover {
-  color: var(--color-coral-sunset);
+  color: var(--color-primary-taupe);
 }
 
 .nav-menu {
@@ -100,11 +100,11 @@
 }
 
 .nav-link:hover {
-  color: var(--color-coral-sunset);
+  color: var(--color-primary-taupe);
 }
 
 .nav-link.active {
-  color: var(--color-ocean-blue);
+  color: var(--color-primary-taupe);
 }
 
 .nav-link.active::after {
@@ -115,7 +115,7 @@
   transform: translateX(-50%);
   width: 30px;
   height: 3px;
-  background: var(--gradient-ocean);
+  background: var(--gradient-taupe);
   border-radius: var(--radius-full);
 }
 
