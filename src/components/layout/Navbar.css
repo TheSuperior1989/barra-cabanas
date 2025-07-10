@@ -14,7 +14,7 @@
 
 .navbar.scrolled {
   background-color: var(--color-shell-white);
-  box-shadow: var(--shadow-ocean);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {

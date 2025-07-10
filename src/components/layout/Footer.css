@@ -1,5 +1,5 @@
 .footer {
-  background: var(--gradient-taupe);
+  background-color: #4a4a4a;
   color: var(--color-shell-white);
   padding: 60px 0 20px;
 }
@@ -41,7 +41,7 @@
 .footer-description {
   line-height: 1.6;
   margin-bottom: 20px;
-  color: var(--color-beach-glass);
+  color: rgba(255, 255, 255, 0.8);
   font-family: var(--font-primary);
 }
 
@@ -63,7 +63,7 @@
 }
 
 .social-icon:hover {
-  background-color: #4361ee;
+  background-color: var(--color-primary-taupe);
   transform: translateY(-3px);
 }
 
@@ -78,9 +78,10 @@
 }
 
 .footer-links a {
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-normal);
+  font-family: var(--font-primary);
   position: relative;
   padding-left: 15px;
 }
@@ -95,7 +96,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--color-primary-taupe);
+  color: var(--color-shell-white);
 }
 
 /* Contact links styling */
@@ -115,15 +116,16 @@
 .contact-info {
   font-style: normal;
   line-height: 1.6;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
   background-color: transparent;
   padding: 0;
   margin: 0;
+  font-family: var(--font-primary);
 }
 
 .contact-info p {
   margin-bottom: 12px;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
   position: relative;
   padding-left: 15px;
 }
@@ -149,7 +151,7 @@
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 30px;
-  color: #999;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   font-family: var(--font-primary);
 }
