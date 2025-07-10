@@ -1,0 +1,153 @@
+/* Barra Cabanas Brand Colors - Ocean & Sand Theme */
+:root {
+  /* Primary Brand Colors - Ocean & Sand Theme */
+  --color-ocean-blue: #006994;
+  --color-sandy-beige: #F5E6D3;
+  --color-coral-sunset: #FF6B47;
+  --color-palm-green: #4A7C59;
+  --color-shell-white: #FEFEFE;
+  
+  /* Secondary Palette */
+  --color-deep-teal: #004B5C;
+  --color-warm-sand: #E8D5B7;
+  --color-beach-glass: #B8E6E1;
+  --color-driftwood: #8B7355;
+  --color-sea-foam: #A8E6CF;
+  
+  /* Neutral Grays */
+  --color-charcoal: #2C3E50;
+  --color-slate: #5A6C7D;
+  --color-mist: #BDC3C7;
+  --color-cloud: #F8F9FA;
+  
+  /* Gradients */
+  --gradient-ocean: linear-gradient(135deg, #006994 0%, #004B5C 100%);
+  --gradient-sunset: linear-gradient(135deg, #FF6B47 0%, #FF8E53 100%);
+  --gradient-sand: linear-gradient(135deg, #F5E6D3 0%, #E8D5B7 100%);
+  
+  /* Typography */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Dancing Script', cursive;
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-ocean: 0 10px 25px rgba(0, 105, 148, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* Ocean Color Scale */
+.ocean-50 { color: #E6F3F8; }
+.ocean-100 { color: #CCE7F1; }
+.ocean-200 { color: #99CFE3; }
+.ocean-300 { color: #66B7D5; }
+.ocean-400 { color: #339FC7; }
+.ocean-500 { color: #006994; }
+.ocean-600 { color: #005477; }
+.ocean-700 { color: #003F5A; }
+.ocean-800 { color: #002A3C; }
+.ocean-900 { color: #00151E; }
+
+.bg-ocean-50 { background-color: #E6F3F8; }
+.bg-ocean-100 { background-color: #CCE7F1; }
+.bg-ocean-200 { background-color: #99CFE3; }
+.bg-ocean-300 { background-color: #66B7D5; }
+.bg-ocean-400 { background-color: #339FC7; }
+.bg-ocean-500 { background-color: #006994; }
+.bg-ocean-600 { background-color: #005477; }
+.bg-ocean-700 { background-color: #003F5A; }
+.bg-ocean-800 { background-color: #002A3C; }
+.bg-ocean-900 { background-color: #00151E; }
+
+/* Sand Color Scale */
+.sand-50 { color: #FEFCFA; }
+.sand-100 { color: #FDF9F5; }
+.sand-200 { color: #FAF3EB; }
+.sand-300 { color: #F7EDE1; }
+.sand-400 { color: #F5E6D3; }
+.sand-500 { color: #F0DBC5; }
+.sand-600 { color: #E8D5B7; }
+.sand-700 { color: #D4C4A3; }
+.sand-800 { color: #C0B38F; }
+.sand-900 { color: #A89A7B; }
+
+.bg-sand-50 { background-color: #FEFCFA; }
+.bg-sand-100 { background-color: #FDF9F5; }
+.bg-sand-200 { background-color: #FAF3EB; }
+.bg-sand-300 { background-color: #F7EDE1; }
+.bg-sand-400 { background-color: #F5E6D3; }
+.bg-sand-500 { background-color: #F0DBC5; }
+.bg-sand-600 { background-color: #E8D5B7; }
+.bg-sand-700 { background-color: #D4C4A3; }
+.bg-sand-800 { background-color: #C0B38F; }
+.bg-sand-900 { background-color: #A89A7B; }
+
+/* Coral Color Scale */
+.coral-50 { color: #FFF5F3; }
+.coral-100 { color: #FFEBE7; }
+.coral-200 { color: #FFD7CF; }
+.coral-300 { color: #FFC3B7; }
+.coral-400 { color: #FFAF9F; }
+.coral-500 { color: #FF6B47; }
+.coral-600 { color: #FF5722; }
+.coral-700 { color: #E64100; }
+.coral-800 { color: #CC3700; }
+.coral-900 { color: #B32D00; }
+
+.bg-coral-50 { background-color: #FFF5F3; }
+.bg-coral-100 { background-color: #FFEBE7; }
+.bg-coral-200 { background-color: #FFD7CF; }
+.bg-coral-300 { background-color: #FFC3B7; }
+.bg-coral-400 { background-color: #FFAF9F; }
+.bg-coral-500 { background-color: #FF6B47; }
+.bg-coral-600 { background-color: #FF5722; }
+.bg-coral-700 { background-color: #E64100; }
+.bg-coral-800 { background-color: #CC3700; }
+.bg-coral-900 { background-color: #B32D00; }
+
+/* Palm Color Scale */
+.palm-50 { color: #F0F4F1; }
+.palm-100 { color: #E1E9E3; }
+.palm-200 { color: #C3D3C7; }
+.palm-300 { color: #A5BDAB; }
+.palm-400 { color: #87A78F; }
+.palm-500 { color: #4A7C59; }
+.palm-600 { color: #3D6647; }
+.palm-700 { color: #305035; }
+.palm-800 { color: #233A23; }
+.palm-900 { color: #162411; }
+
+.bg-palm-50 { background-color: #F0F4F1; }
+.bg-palm-100 { background-color: #E1E9E3; }
+.bg-palm-200 { background-color: #C3D3C7; }
+.bg-palm-300 { background-color: #A5BDAB; }
+.bg-palm-400 { background-color: #87A78F; }
+.bg-palm-500 { background-color: #4A7C59; }
+.bg-palm-600 { background-color: #3D6647; }
+.bg-palm-700 { background-color: #305035; }
+.bg-palm-800 { background-color: #233A23; }
+.bg-palm-900 { background-color: #162411; }

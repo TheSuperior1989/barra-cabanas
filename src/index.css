@@ -1,9 +1,15 @@
+/* Import Barra Cabanas color variables */
+@import './styles/variables.css';
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   font-weight: 400;
-  color: #333;
-  background-color: #fff;
+  color: var(--color-charcoal);
+  background-color: var(--color-shell-white);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

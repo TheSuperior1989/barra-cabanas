@@ -1,6 +1,6 @@
 .footer {
-  background-color: #1a1a2e;
-  color: #fff;
+  background: var(--gradient-ocean);
+  color: var(--color-shell-white);
   padding: 60px 0 20px;
 }
 
@@ -19,10 +19,12 @@
 
 .footer-title {
   font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 10px;
-  color: #fff;
+  color: var(--color-shell-white);
 }
 
 .footer-title::after {
@@ -32,14 +34,15 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
-  border-radius: 10px;
+  background: var(--gradient-sunset);
+  border-radius: var(--radius-full);
 }
 
 .footer-description {
   line-height: 1.6;
   margin-bottom: 20px;
-  color: #ccc;
+  color: var(--color-beach-glass);
+  font-family: var(--font-body);
 }
 
 .social-icons {
