@@ -580,22 +580,7 @@ const BookingPage = () => {
               })}
             </div>
 
-            <div className="yearly-calendar-footer">
-              <div className="availability-stats">
-                <div className="stat-item">
-                  <span className="stat-number">{Object.values(bookedDates).flat().length}</span>
-                  <span className="stat-label">Total Booked Days</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">{365 - Object.values(bookedDates).flat().length}</span>
-                  <span className="stat-label">Available Days</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">{Math.round((Object.values(bookedDates).flat().length / 365) * 100)}%</span>
-                  <span className="stat-label">Occupancy Rate</span>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </section>
