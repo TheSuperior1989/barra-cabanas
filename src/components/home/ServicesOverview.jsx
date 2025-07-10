@@ -116,11 +116,7 @@ const ServicesOverview = () => {
           ))}
         </motion.div>
 
-        <div className="services-cta">
-          <Link to="/services" className="btn btn-primary">
-            Explore All Services
-          </Link>
-        </div>
+
       </div>
     </section>
   );

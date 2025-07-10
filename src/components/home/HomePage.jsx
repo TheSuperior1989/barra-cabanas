@@ -9,8 +9,8 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <Hero />
-      <ServicesOverview />
       <FeaturedProjects />
+      <ServicesOverview />
       <Testimonials />
       <ContactCTA />
     </div>
