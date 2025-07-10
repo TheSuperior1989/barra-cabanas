@@ -22,16 +22,18 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  position: relative !important;
 }
 
 .navbar-logo {
-  color: var(--color-ocean-900);
+  color: var(--text-color-medium);
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: var(--font-display);
+  font-family: var(--font-primary);
   display: flex;
   align-items: center;
 }
@@ -61,7 +63,7 @@
 
 .menu-icon {
   display: none;
-  color: var(--color-ocean-900);
+  color: var(--text-color-medium);
   font-size: 1.8rem;
   cursor: pointer;
   transition: color var(--transition-fast);
@@ -87,14 +89,14 @@
 }
 
 .nav-link {
-  color: var(--color-ocean-900);
+  color: var(--text-color-medium);
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   font-weight: 500;
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   position: relative;
   transition: all var(--transition-normal);
 }

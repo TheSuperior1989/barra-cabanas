@@ -13,9 +13,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-section">
+    <footer className="footer brand-footer">
+      <div className="footer-middle">
+        <div className="container container--mw1320">
+        <div className="footer-section footer-links-col">
           <h3 className="footer-title">Barra Cabanas</h3>
           <p className="footer-description">
             Experience luxury beach house accommodation in Mozambique with exceptional comfort and stunning ocean views.
@@ -36,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-section">
+        <div className="footer-section footer-links-col">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/'); }}>Home</a></li>
@@ -49,7 +50,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="footer-section">
+        <div className="footer-section footer-links-col">
           <h3 className="footer-title">Accommodation</h3>
           <ul className="footer-links">
             <li><a href="#" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}>Luxury Beach Houses</a></li>
@@ -61,13 +62,14 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="footer-section">
+        <div className="footer-section footer-links-col">
           <h3 className="footer-title">Contact Us</h3>
           <ul className="footer-links">
             <li>Email: <a href="mailto:info@barracabanas.co.za">info@barracabanas.co.za</a></li>
             <li>Phone: <a href="tel:+27833793741">+27 83 379 3741</a></li>
             <li>Location: Barra, Mozambique</li>
           </ul>
+        </div>
         </div>
       </div>
 

@@ -13,13 +13,28 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
+  padding: var(--container-padding);
   margin: 0 auto;
-  padding: 0 24px;
+  position: relative !important;
+}
+
+.container--mw1320 {
+  max-width: var(--footer-container-max-width) !important;
+}
+
+footer .footer-middle .container--mw1320 {
+  padding: var(--footer-container-padding);
 }
 
 /* Typography */
+.blog-cta__title,
+.brand-footer .footer-links-col .t-underline,
+.brand-footer .footer-links-col h3,
+.header-primary,
+.h1, .h2, .h3, .h4, .h5, .h6,
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
