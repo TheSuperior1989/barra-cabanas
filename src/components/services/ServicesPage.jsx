@@ -63,7 +63,17 @@ const ServiceItem = ({ service, index }) => {
             <li key={i}>{detail}</li>
           ))}
         </ul>
-        <Link to="/booking" className="btn btn-primary" style={{ position: 'relative', zIndex: 10 }}>Book Now</Link>
+        <a
+          href="/booking"
+          className="btn btn-primary"
+          style={{ position: 'relative', zIndex: 10, cursor: 'pointer' }}
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/booking';
+          }}
+        >
+          Book Now
+        </a>
       </motion.div>
       <motion.div className="service-image" variants={itemVariants}>
         <img src={service.image} alt={service.title} />
