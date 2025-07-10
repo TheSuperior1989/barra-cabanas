@@ -51,7 +51,7 @@ const ServiceItem = ({ service, index }) => {
       animate={inView ? 'visible' : 'hidden'}
       className={`service-item ${index % 2 === 0 ? '' : 'reverse'}`}
     >
-      <motion.div className="service-content" variants={itemVariants}>
+      <motion.div className="service-content" variants={itemVariants} style={{ pointerEvents: 'auto' }}>
         <div className="service-icon">
           <FontAwesomeIcon icon={service.icon} />
         </div>
@@ -63,7 +63,7 @@ const ServiceItem = ({ service, index }) => {
             <li key={i}>{detail}</li>
           ))}
         </ul>
-        <Link to="/booking" className="btn btn-primary">Book Now</Link>
+        <Link to="/booking" className="btn btn-primary" style={{ position: 'relative', zIndex: 10 }}>Book Now</Link>
       </motion.div>
       <motion.div className="service-image" variants={itemVariants}>
         <img src={service.image} alt={service.title} />
