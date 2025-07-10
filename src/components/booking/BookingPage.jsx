@@ -95,6 +95,11 @@ const BookingPage = () => {
     }
   ];
 
+  // Helper function to format dates
+  const formatDate = (date) => {
+    return date.toISOString().split('T')[0];
+  };
+
   // Mock booked dates - memoized to prevent recalculation on re-renders
   const generatedBookedDates = useMemo(() => {
     const bookedDates = {
@@ -176,10 +181,6 @@ const BookingPage = () => {
 
   const getFirstDayOfMonth = (date) => {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-  };
-
-  const formatDate = (date) => {
-    return date.toISOString().split('T')[0];
   };
 
   const isDateBooked = (date) => {
