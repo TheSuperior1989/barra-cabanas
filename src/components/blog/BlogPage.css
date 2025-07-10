@@ -75,7 +75,7 @@
 
 .search-box input:focus {
   outline: none;
-  border-color: #4361ee;
+  border-color: var(--color-primary-taupe);
 }
 
 .search-btn {
@@ -86,7 +86,7 @@
   width: 50px;
   background: none;
   border: none;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   cursor: pointer;
   font-size: 1.2rem;
 }
@@ -119,7 +119,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
+  background: var(--gradient-taupe);
   border-radius: 10px;
 }
 
@@ -150,14 +150,14 @@
   content: '›';
   position: absolute;
   left: 0;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   font-size: 18px;
   line-height: 1;
 }
 
 .categories-list button:hover,
 .categories-list button.active {
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   transform: translateX(5px);
 }
 
@@ -207,7 +207,7 @@
 }
 
 .recent-post:hover .recent-post-info h4 {
-  color: #4361ee;
+  color: var(--color-primary-taupe);
 }
 
 .recent-post-date {
@@ -233,7 +233,7 @@
 }
 
 .tag:hover {
-  background-color: #4361ee;
+  background-color: var(--color-primary-taupe);
   color: #fff;
 }
 
@@ -271,7 +271,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
+  background: var(--gradient-taupe);
   color: #fff;
   padding: 5px 15px;
   border-radius: 50px;
@@ -296,7 +296,7 @@
 }
 
 .blog-title a:hover {
-  color: #4361ee;
+  color: var(--color-primary-taupe);
 }
 
 .blog-meta {
@@ -337,15 +337,16 @@
 
 .read-more {
   display: inline-block;
-  color: #4361ee;
+  color: var(--color-primary-taupe);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .read-more:hover {
-  color: #3a86ff;
+  color: var(--color-primary-taupe);
   transform: translateX(5px);
+  filter: brightness(1.1);
 }
 
 .no-results {

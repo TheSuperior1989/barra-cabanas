@@ -194,7 +194,7 @@ const BlogPage = () => {
             <div className="tags-box">
               <h3>Popular Tags</h3>
               <div className="tags-list">
-                {['CNC', 'Web Design', 'Marketing', 'Branding', 'Technology', 'Development', 'SEO', 'UI/UX'].map((tag) => (
+                {['Beach', 'Luxury', 'Mozambique', 'Travel', 'Adventure', 'Culture', 'Sustainability', 'Romance'].map((tag) => (
                   <span key={tag} className="tag">
                     {tag}
                   </span>
