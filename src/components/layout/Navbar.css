@@ -39,10 +39,11 @@
 }
 
 .logo-image {
-  height: 80px;
+  height: 100px;
   width: auto;
   transition: all 0.3s ease;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  margin-top: 8px;
   /* Ensure crisp rendering for SVG */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;

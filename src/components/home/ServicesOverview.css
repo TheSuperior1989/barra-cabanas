@@ -118,11 +118,11 @@
   text-align: center;
   margin-top: 60px;
   padding: 80px 40px;
-  background: var(--gradient-sand);
+  background: linear-gradient(135deg, #f8f9fa 0%, #6c757d 100%);
   border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
-  border: 2px solid var(--color-warm-sand);
+  border: 2px solid #dee2e6;
 }
 
 .services-cta::before {
