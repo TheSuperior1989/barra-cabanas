@@ -1,0 +1,79 @@
+.contact-cta {
+  padding: 100px 0;
+  background-image: url('/src/assets/images/hero/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: #fff;
+}
+
+.cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(58, 134, 255, 0.9) 100%);
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+  .contact-cta {
+    padding: 70px 0;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

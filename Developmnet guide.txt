@@ -1,0 +1,1602 @@
+# Complete Barra Cabanas Website Development Guide - Vite + React
+
+## Project Setup & Initial Configuration
+
+### **Initial Project Setup**
+```bash
+# Create Vite React project
+npm create vite@latest barra-cabanas -- --template react
+cd barra-cabanas
+
+# Install essential dependencies
+npm install react-router-dom framer-motion
+npm install @headlessui/react @heroicons/react
+npm install react-hook-form yup @hookform/resolvers
+npm install swiper embla-carousel-react
+npm install react-intersection-observer
+npm install date-fns react-datepicker
+npm install axios react-query
+npm install i18next react-i18next
+npm install react-helmet-async
+
+# Development dependencies
+npm install -D tailwindcss postcss autoprefixer
+npm install -D @types/react @types/react-dom
+npm install -D eslint @vitejs/plugin-react
+npm install -D vite-plugin-pwa
+npm install -D @testing-library/react @testing-library/jest-dom vitest
+```
+
+### **Vite Configuration**
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}']
+      }
+    })
+  ],
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@components': '/src/components',
+      '@pages': '/src/pages',
+      '@hooks': '/src/hooks',
+      '@utils': '/src/utils',
+      '@assets': '/src/assets',
+      '@styles': '/src/styles'
+    }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['framer-motion'],
+          ui: ['@headlessui/react', '@heroicons/react']
+        }
+      }
+    }
+  },
+  server: {
+    port: 3000,
+    open: true
+  }
+})
+```
+
+## Brand Identity & Design System
+
+### **Barra Cabanas Brand Colors**
+```css
+/* src/styles/variables.css */
+:root {
+  /* Primary Brand Colors - Ocean & Sand Theme */
+  --color-ocean-blue: #006994;
+  --color-sandy-beige: #F5E6D3;
+  --color-coral-sunset: #FF6B47;
+  --color-palm-green: #4A7C59;
+  --color-shell-white: #FEFEFE;
+  
+  /* Secondary Palette */
+  --color-deep-teal: #004B5C;
+  --color-warm-sand: #E8D5B7;
+  --color-beach-glass: #B8E6E1;
+  --color-driftwood: #8B7355;
+  --color-sea-foam: #A8E6CF;
+  
+  /* Neutral Grays */
+  --color-charcoal: #2C3E50;
+  --color-slate: #5A6C7D;
+  --color-mist: #BDC3C7;
+  --color-cloud: #F8F9FA;
+  
+  /* Gradients */
+  --gradient-ocean: linear-gradient(135deg, #006994 0%, #004B5C 100%);
+  --gradient-sunset: linear-gradient(135deg, #FF6B47 0%, #FF8E53 100%);
+  --gradient-sand: linear-gradient(135deg, #F5E6D3 0%, #E8D5B7 100%);
+  
+  /* Typography */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Dancing Script', cursive;
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-ocean: 0 10px 25px rgba(0, 105, 148, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+```
+
+### **Tailwind Configuration**
+```javascript
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        ocean: {
+          50: '#E6F3F8',
+          100: '#CCE7F1',
+          200: '#99CFE3',
+          300: '#66B7D5',
+          400: '#339FC7',
+          500: '#006994',
+          600: '#005477',
+          700: '#003F5A',
+          800: '#002A3C',
+          900: '#00151E'
+        },
+        sand: {
+          50: '#FEFCFA',
+          100: '#FDF9F5',
+          200: '#FAF3EB',
+          300: '#F7EDE1',
+          400: '#F5E6D3',
+          500: '#F0DBC5',
+          600: '#E8D5B7',
+          700: '#D4C4A3',
+          800: '#C0B38F',
+          900: '#A89A7B'
+        },
+        coral: {
+          50: '#FFF5F3',
+          100: '#FFEBE7',
+          200: '#FFD7CF',
+          300: '#FFC3B7',
+          400: '#FFAF9F',
+          500: '#FF6B47',
+          600: '#FF5722',
+          700: '#E64100',
+          800: '#CC3700',
+          900: '#B32D00'
+        },
+        palm: {
+          50: '#F0F4F1',
+          100: '#E1E9E3',
+          200: '#C3D3C7',
+          300: '#A5BDAB',
+          400: '#87A78F',
+          500: '#4A7C59',
+          600: '#3D6647',
+          700: '#305035',
+          800: '#233A23',
+          900: '#162411'
+        }
+      },
+      fontFamily: {
+        'display': ['Poppins', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+        'accent': ['Dancing Script', 'cursive']
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }]
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'slide-down': 'slideDown 0.5s ease-out',
+        'scale-in': 'scaleIn 0.3s ease-out',
+        'wave': 'wave 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        slideDown: {
+          '0%': { transform: 'translateY(-100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.9)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' }
+        },
+        wave: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' }
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        }
+      }
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio')
+  ],
+}
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── common/
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Navigation.jsx
+│   │   │   ├── MobileMenu.jsx
+│   │   │   └── BookingWidget.jsx
+│   │   ├── Footer/
+│   │   │   ├── Footer.jsx
+│   │   │   └── NewsletterSignup.jsx
+│   │   ├── Layout/
+│   │   │   ├── Layout.jsx
+│   │   │   └── SEO.jsx
+│   │   └── UI/
+│   │       ├── Button.jsx
+│   │       ├── Input.jsx
+│   │       ├── Modal.jsx
+│   │       ├── Loader.jsx
+│   │       └── Toast.jsx
+│   ├── home/
+│   │   ├── HeroSection.jsx
+│   │   ├── FeaturedCabanas.jsx
+│   │   ├── ExperiencesSection.jsx
+│   │   ├── LocationMap.jsx
+│   │   └── TestimonialsCarousel.jsx
+│   ├── cabanas/
+│   │   ├── CabanaCard.jsx
+│   │   ├── CabanaGallery.jsx
+│   │   ├── CabanaDetails.jsx
+│   │   ├── AmenitiesGrid.jsx
+│   │   └── PricingCalendar.jsx
+│   ├── booking/
+│   │   ├── BookingFlow.jsx
+│   │   ├── DatePicker.jsx
+│   │   ├── GuestSelector.jsx
+│   │   ├── PaymentForm.jsx
+│   │   └── BookingConfirmation.jsx
+│   └── experiences/
+│       ├── ExperienceCard.jsx
+│       ├── ActivityCalendar.jsx
+│       └── VideoPlayer.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── Cabanas.jsx
+│   ├── CabanaDetail.jsx
+│   ├── Experiences.jsx
+│   ├── About.jsx
+│   ├── Contact.jsx
+│   └── Booking.jsx
+├── hooks/
+│   ├── useBooking.js
+│   ├── useIntersectionObserver.js
+│   ├── useLocalStorage.js
+│   ├── useMediaQuery.js
+│   └── useScrollPosition.js
+├── context/
+│   ├── BookingContext.jsx
+│   ├── LanguageContext.jsx
+│   └── ThemeContext.jsx
+├── utils/
+│   ├── api.js
+│   ├── constants.js
+│   ├── helpers.js
+│   └── validation.js
+├── assets/
+│   ├── images/
+│   ├── videos/
+│   ├── icons/
+│   └── fonts/
+├── styles/
+│   ├── globals.css
+│   ├── variables.css
+│   └── components.css
+└── App.jsx
+```
+
+## Core Components Implementation
+
+### **Layout Component**
+```jsx
+// src/components/common/Layout/Layout.jsx
+import React from 'react'
+import { motion } from 'framer-motion'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import SEO from './SEO'
+
+const Layout = ({ children, title, description, keywords, image, noIndex }) => {
+  return (
+    <>
+      <SEO 
+        title={title}
+        description={description}
+        keywords={keywords}
+        image={image}
+        noIndex={noIndex}
+      />
+      <div className="min-h-screen flex flex-col bg-shell-white">
+        <Header />
+        <motion.main
+          className="flex-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {children}
+        </motion.main>
+        <Footer />
+      </div>
+    </>
+  )
+}
+
+export default Layout
+```
+
+### **Header Component**
+```jsx
+// src/components/common/Header/Header.jsx
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Navigation from './Navigation'
+import MobileMenu from './MobileMenu'
+import BookingWidget from './BookingWidget'
+import useScrollPosition from '@/hooks/useScrollPosition'
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
+  const scrollPosition = useScrollPosition()
+  const location = useLocation()
+
+  const isScrolled = scrollPosition > 50
+  const isHomePage = location.pathname === '/'
+
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [location])
+
+  return (
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || !isHomePage
+            ? 'bg-white shadow-lg backdrop-blur-md bg-opacity-95'
+            : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <Link 
+              to="/" 
+              className="flex items-center space-x-2 z-50"
+            >
+              <motion.div
+                className="w-10 h-10 bg-gradient-to-br from-ocean-500 to-coral-500 rounded-lg flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-white font-bold text-xl">BC</span>
+              </motion.div>
+              <div className="hidden sm:block">
+                <h1 className={`font-display font-bold text-xl ${
+                  isScrolled || !isHomePage ? 'text-ocean-900' : 'text-white'
+                }`}>
+                  Barra Cabanas
+                </h1>
+                <p className={`text-sm font-accent ${
+                  isScrolled || !isHomePage ? 'text-ocean-600' : 'text-shell-white/90'
+                }`}>
+                  Coastal Paradise
+                </p>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:block">
+              <Navigation 
+                isScrolled={isScrolled} 
+                isHomePage={isHomePage}
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center space-x-4">
+              {/* Booking Button */}
+              <motion.button
+                onClick={() => setIsBookingOpen(true)}
+                className="hidden sm:flex items-center px-6 py-2 bg-gradient-to-r from-coral-500 to-coral-600 text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book Now
+              </motion.button>
+
+              {/* Mobile Menu Button */}
+              <motion.button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`lg:hidden p-2 rounded-md ${
+                  isScrolled || !isHomePage ? 'text-ocean-900' : 'text-white'
+                }`}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isMenuOpen ? (
+                  <XMarkIcon className="h-6 w-6" />
+                ) : (
+                  <Bars3Icon className="h-6 w-6" />
+                )}
+              </motion.button>
+            </div>
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <MobileMenu 
+            onClose={() => setIsMenuOpen(false)}
+            onBookingOpen={() => setIsBookingOpen(true)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Booking Widget */}
+      <AnimatePresence>
+        {isBookingOpen && (
+          <BookingWidget onClose={() => setIsBookingOpen(false)} />
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
+export default Header
+```
+
+### **Navigation Component**
+```jsx
+// src/components/common/Header/Navigation.jsx
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
+
+const navigationItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Cabanas', href: '/cabanas' },
+  { name: 'Experiences', href: '/experiences' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' }
+]
+
+const Navigation = ({ isScrolled, isHomePage }) => {
+  const location = useLocation()
+
+  return (
+    <nav className="flex items-center space-x-8">
+      {navigationItems.map((item) => (
+        <Link
+          key={item.name}
+          to={item.href}
+          className="relative group"
+        >
+          <motion.span
+            className={`font-medium transition-colors duration-300 ${
+              location.pathname === item.href
+                ? isScrolled || !isHomePage
+                  ? 'text-ocean-600'
+                  : 'text-coral-400'
+                : isScrolled || !isHomePage
+                ? 'text-ocean-900 hover:text-ocean-600'
+                : 'text-white hover:text-coral-400'
+            }`}
+            whileHover={{ scale: 1.05 }}
+          >
+            {item.name}
+          </motion.span>
+          
+          {/* Active indicator */}
+          {location.pathname === item.href && (
+            <motion.div
+              className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                isScrolled || !isHomePage ? 'bg-ocean-600' : 'bg-coral-400'
+              }`}
+              layoutId="activeTab"
+              initial={false}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30
+              }}
+            />
+          )}
+
+          {/* Hover indicator */}
+          <motion.div
+            className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+              isScrolled || !isHomePage ? 'bg-ocean-400' : 'bg-coral-300'
+            }`}
+          />
+        </Link>
+      ))}
+    </nav>
+  )
+}
+
+export default Navigation
+```
+
+### **Hero Section**
+```jsx
+// src/components/home/HeroSection.jsx
+import React, { useState, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { PlayIcon, PauseIcon } from '@heroicons/react/24/solid'
+import Button from '@/components/common/UI/Button'
+
+const HeroSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
+  const videoRef = useRef(null)
+  const containerRef = useRef(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  const toggleVideo = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsVideoPlaying(!isVideoPlaying)
+    }
+  }
+
+  return (
+    <motion.section
+      ref={containerRef}
+      className="relative h-screen overflow-hidden"
+      style={{ y }}
+    >
+      {/* Video Background */}
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-poster.jpg"
+        >
+          <source src="/videos/hero-beach.mp4" type="video/mp4" />
+          <source src="/videos/hero-beach.webm" type="video/webm" />
+        </video>
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+      </div>
+
+      {/* Content */}
+      <motion.div
+        className="relative h-full flex items-center justify-center text-center px-4"
+        style={{ opacity }}
+      >
+        <div className="max-w-4xl mx-auto">
+          <motion.h1
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <span className="block">Escape to</span>
+            <span className="block text-transparent bg-gradient-to-r from-coral-400 to-palm-400 bg-clip-text">
+              Barra Cabanas
+            </span>
+          </motion.h1>
+
+          <motion.p
+            className="text-xl md:text-2xl text-shell-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            Discover your private coastal paradise where luxury meets the 
+            untamed beauty of pristine beaches and crystal-clear waters.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto"
+              onClick={() => document.getElementById('booking-widget')?.scrollIntoView()}
+            >
+              Book Your Escape
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto text-white border-white hover:bg-white hover:text-ocean-900"
+              onClick={() => document.getElementById('cabanas')?.scrollIntoView()}
+            >
+              Explore Cabanas
+            </Button>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <motion.div
+              className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <motion.div
+                className="w-1 h-3 bg-white rounded-full mt-2"
+                animate={{ scaleY: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Video Controls */}
+      <motion.button
+        onClick={toggleVideo}
+        className="absolute bottom-6 right-6 p-3 bg-black/30 backdrop-blur-sm rounded-full text-white hover:bg-black/50 transition-colors duration-300"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        {isVideoPlaying ? (
+          <PauseIcon className="h-6 w-6" />
+        ) : (
+          <PlayIcon className="h-6 w-6" />
+        )}
+      </motion.button>
+    </motion.section>
+  )
+}
+
+export default HeroSection
+```
+
+### **Cabana Card Component**
+```jsx
+// src/components/cabanas/CabanaCard.jsx
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { 
+  HeartIcon,
+  UserGroupIcon,
+  HomeIcon,
+  StarIcon
+} from '@heroicons/react/24/outline'
+import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
+
+const CabanaCard = ({ cabana, index }) => {
+  const [isLiked, setIsLiked] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        delay: index * 0.1
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="group"
+    >
+      <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
+        {/* Image Gallery */}
+        <div className="relative h-64 overflow-hidden">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out h-full"
+            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+          >
+            {cabana.images.map((image, idx) => (
+              <img
+                key={idx}
+                src={image}
+                alt={`${cabana.name} - View ${idx + 1}`}
+                className="w-full h-full object-cover flex-shrink-0"
+                loading="lazy"
+              />
+            ))}
+          </div>
+
+          {/* Image Navigation Dots */}
+          {cabana.images.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {cabana.images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    idx === currentImageIndex
+                      ? 'bg-white scale-125'
+                      : 'bg-white/60 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Like Button */}
+          <motion.button
+            onClick={() => setIsLiked(!isLiked)}
+            className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            {isLiked ? (
+              <HeartSolidIcon className="h-5 w-5 text-coral-500" />
+            ) : (
+              <HeartIcon className="h-5 w-5 text-ocean-600" />
+            )}
+          </motion.button>
+
+          {/* Badge */}
+          {cabana.badge && (
+            <div className="absolute top-4 left-4 px-3 py-1 bg-coral-500 text-white text-sm font-medium rounded-full">
+              {cabana.badge}
+            </div>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="p-6">
+          {/* Rating */}
+          <div className="flex items-center space-x-1 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon
+                key={i}
+                className={`h-4 w-4 ${
+                  i < cabana.rating
+                    ? 'text-yellow-400 fill-current'
+                    : 'text-gray-300'
+                }`}
+              />
+            ))}
+            <span className="text-sm text-slate-600 ml-2">
+              ({cabana.reviewCount} reviews)
+            </span>
+          </div>
+
+          {/* Title and Type */}
+          <h3 className="font-display font-bold text-xl text-ocean-900 mb-2 group-hover:text-ocean-600 transition-colors">
+            {cabana.name}
+          </h3>
+          <p className="text-slate-600 mb-4">{cabana.type}</p>
+
+          {/* Amenities */}
+          <div className="flex items-center space-x-4 mb-4 text-sm text-slate-600">
+            <div className="flex items-center space-x-1">
+              <UserGroupIcon className="h-4 w-4" />
+              <span>{cabana.maxGuests} guests</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <HomeIcon className="h-4 w-4" />
+              <span>{cabana.bedrooms} bedrooms</span>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {cabana.features.slice(0, 3).map((feature, idx) => (
+              <span
+                key={idx}
+                className="px-2 py-1 bg-sand-100 text-ocean-700 text-xs rounded-full"
+              >
+                {feature}
+              </span>
+            ))}
+            {cabana.features.length > 3 && (
+              <span className="px-2 py-1 bg-sand-100 text-ocean-700 text-xs rounded-full">
+                +{cabana.features.length - 3} more
+              </span>
+            )}
+          </div>
+
+          {/* Price and CTA */}
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-2xl font-bold text-ocean-900">
+                ${cabana.pricePerNight}
+              </span>
+              <span className="text-slate-600 text-sm ml-1">/ night</span>
+            </div>
+            
+            <Link
+              to={`/cabanas/${cabana.id}`}
+              className="px-6 py-2 bg-gradient-to-r from-coral-500 to-coral-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            >
+              View Details
+            </Link>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+export default CabanaCard
+```
+
+### **Interactive Map Component**
+```jsx
+// src/components/home/LocationMap.jsx
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
+
+const LocationMap = () => {
+  const [activePin, setActivePin] = useState(null)
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  // Mock map data - replace with actual map integration
+  const locations = [
+    {
+      id: 1,
+      name: 'Barra Cabanas Resort',
+      type: 'Main Resort',
+      coordinates: { lat: -34.6118, lng: -58.3960 },
+      description: 'Our main resort with luxury cabanas and world-class amenities',
+      amenities: ['Beach Access', 'Restaurant', 'Spa', 'Pool']
+    },
+    {
+      id: 2,
+      name: 'Private Beach Club',
+      type: 'Beach Club',
+      coordinates: { lat: -34.6158, lng: -58.3920 },
+      description: 'Exclusive beach club with water sports and dining',
+      amenities: ['Water Sports', 'Beach Bar', 'Lounge Area']
+    },
+    {
+      id: 3,
+      name: 'Sunset Point',
+      type: 'Viewpoint',
+      coordinates: { lat: -34.6088, lng: -58.4000 },
+      description: 'Perfect spot for watching spectacular sunsets',
+      amenities: ['Scenic Views', 'Photo Spots', 'Seating Area']
+    }
+  ]
+
+  useEffect(() => {
+    // Simulate map loading
+    const timer = setTimeout(() => setMapLoaded(true), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <section className="py-16 bg-sand-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-ocean-900 mb-4">
+            Our Location
+          </h2>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Discover the perfect coastal paradise nestled along pristine beaches
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Map Container */}
+          <motion.div
+            className="relative h-96 lg:h-[500px] bg-gradient-to-br from-ocean-100 to-sand-100 rounded-2xl overflow-hidden shadow-lg"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {!mapLoaded ? (
+              // Loading placeholder
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-ocean-500" />
+              </div>
+            ) : (
+              // Interactive map placeholder
+              <div className="relative w-full h-full bg-gradient-to-br from-ocean-200 to-sand-200">
+                {/* Mock map background */}
+                <div className="absolute inset-0 opacity-60">
+                  <svg className="w-full h-full">
+                    <defs>
+                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#006994" strokeWidth="0.5" opacity="0.3"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                  </svg>
+                </div>
+
+                {/* Location pins */}
+                {locations.map((location, index) => (
+                  <motion.button
+                    key={location.id}
+                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 p-2 rounded-full shadow-lg transition-all duration-300 ${
+                      activePin === location.id
+                        ? 'bg-coral-500 scale-125 z-10'
+                        : 'bg-ocean-500 hover:bg-ocean-600 hover:scale-110'
+                    }`}
+                    style={{
+                      left: `${30 + index * 20}%`,
+                      top: `${40 + index * 15}%`
+                    }}
+                    onClick={() => setActivePin(activePin === location.id ? null : location.id)}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: index * 0.2 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <MapPinIcon className="h-6 w-6 text-white" />
+                  </motion.button>
+                ))}
+
+                {/* Active pin popup */}
+                {activePin && (
+                  <motion.div
+                    className="absolute z-20 bg-white rounded-lg shadow-xl p-4 max-w-xs"
+                    style={{
+                      left: `${30 + locations.findIndex(l => l.id === activePin) * 20}%`,
+                      top: `${25 + locations.findIndex(l => l.id === activePin) * 15}%`
+                    }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                  >
+                    {(() => {
+                      const location = locations.find(l => l.id === activePin)
+                      return (
+                        <>
+                          <h3 className="font-display font-bold text-ocean-900 mb-1">
+                            {location.name}
+                          </h3>
+                          <p className="text-sm text-coral-600 mb-2">{location.type}</p>
+                          <p className="text-sm text-slate-600 mb-3">{location.description}</p>
+                          <div className="flex flex-wrap gap-1">
+                            {location.amenities.map((amenity, idx) => (
+                              <span
+                                key={idx}
+                                className="px-2 py-1 bg-sand-100 text-ocean-700 text-xs rounded-full"
+                              >
+                                {amenity}
+                              </span>
+                            ))}
+                          </div>
+                        </>
+                      )
+                    })()}
+                  </motion.div>
+                )}
+              </div>
+            )}
+          </motion.div>
+
+          {/* Location Info */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div>
+              <h3 className="font-display text-2xl font-bold text-ocean-900 mb-4">
+                Paradise Found
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                Nestled along the pristine coastline, Barra Cabanas offers an exclusive 
+                escape where azure waters meet golden sands. Our resort provides the 
+                perfect blend of luxury and natural beauty.
+              </p>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0 w-10 h-10 bg-ocean-100 rounded-lg flex items-center justify-center">
+                  <MapPinIcon className="h-5 w-5 text-ocean-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-ocean-900">Address</p>
+                  <p className="text-slate-600">123 Coastal Highway, Barra Beach</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0 w-10 h-10 bg-ocean-100 rounded-lg flex items-center justify-center">
+                  <PhoneIcon className="h-5 w-5 text-ocean-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-ocean-900">Phone</p>
+                  <p className="text-slate-600">+1 (555) 123-4567</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0 w-10 h-10 bg-ocean-100 rounded-lg flex items-center justify-center">
+                  <EnvelopeIcon className="h-5 w-5 text-ocean-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-ocean-900">Email</p>
+                  <p className="text-slate-600">hello@barracabanas.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Directions Button */}
+            <motion.button
+              className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-ocean-500 to-ocean-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Get Directions
+            </motion.button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default LocationMap
+```
+
+### **Booking Widget Component**
+```jsx
+// src/components/common/Header/BookingWidget.jsx
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { XMarkIcon, CalendarIcon, UserGroupIcon } from '@heroicons/react/24/outline'
+import { useForm } from 'react-hook-form'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
+
+const BookingWidget = ({ onClose }) => {
+  const [checkIn, setCheckIn] = useState(null)
+  const [checkOut, setCheckOut] = useState(null)
+  const [guests, setGuests] = useState({ adults: 2, children: 0 })
+  const [showGuestSelector, setShowGuestSelector] = useState(false)
+
+  const { register, handleSubmit, formState: { errors } } = useForm()
+
+  const onSubmit = (data) => {
+    const bookingData = {
+      ...data,
+      checkIn,
+      checkOut,
+      guests
+    }
+    console.log('Booking data:', bookingData)
+    // Handle booking submission
+    onClose()
+  }
+
+  const incrementGuests = (type) => {
+    setGuests(prev => ({
+      ...prev,
+      [type]: prev[type] + 1
+    }))
+  }
+
+  const decrementGuests = (type) => {
+    setGuests(prev => ({
+      ...prev,
+      [type]: Math.max(0, prev[type] - 1)
+    }))
+  }
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Backdrop */}
+      <motion.div
+        className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      />
+
+      {/* Modal */}
+      <motion.div
+        className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+      >
+        {/* Header */}
+        <div className="p-6 border-b border-sand-200">
+          <div className="flex items-center justify-between">
+            <h2 className="font-display text-2xl font-bold text-ocean-900">
+              Book Your Stay
+            </h2>
+            <motion.button
+              onClick={onClose}
+              className="p-2 hover:bg-sand-100 rounded-full transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <XMarkIcon className="h-6 w-6 text-slate-600" />
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-6">
+          {/* Date Selection */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-ocean-900 mb-2">
+                Check-in
+              </label>
+              <div className="relative">
+                <DatePicker
+                  selected={checkIn}
+                  onChange={setCheckIn}
+                  selectsStart
+                  startDate={checkIn}
+                  endDate={checkOut}
+                  minDate={new Date()}
+                  placeholderText="Select date"
+                  className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                />
+                <CalendarIcon className="absolute right-3 top-3 h-5 w-5 text-slate-400 pointer-events-none" />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-ocean-900 mb-2">
+                Check-out
+              </label>
+              <div className="relative">
+                <DatePicker
+                  selected={checkOut}
+                  onChange={setCheckOut}
+                  selectsEnd
+                  startDate={checkIn}
+                  endDate={checkOut}
+                  minDate={checkIn}
+                  placeholderText="Select date"
+                  className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                />
+                <CalendarIcon className="absolute right-3 top-3 h-5 w-5 text-slate-400 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* Guest Selection */}
+          <div>
+            <label className="block text-sm font-medium text-ocean-900 mb-2">
+              Guests
+            </label>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setShowGuestSelector(!showGuestSelector)}
+                className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent text-left flex items-center justify-between"
+              >
+                <span>
+                  {guests.adults + guests.children} guest{guests.adults + guests.children !== 1 ? 's' : ''}
+                </span>
+                <UserGroupIcon className="h-5 w-5 text-slate-400" />
+              </button>
+
+              <AnimatePresence>
+                {showGuestSelector && (
+                  <motion.div
+                    className="absolute top-full left-0 right-0 mt-2 p-4 bg-white border border-sand-300 rounded-lg shadow-lg z-10"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-ocean-900">Adults</span>
+                        <div className="flex items-center space-x-3">
+                          <button
+                            type="button"
+                            onClick={() => decrementGuests('adults')}
+                            className="w-8 h-8 rounded-full border border-sand-300 flex items-center justify-center hover:bg-sand-100"
+                            disabled={guests.adults <= 1}
+                          >
+                            -
+                          </button>
+                          <span className="w-8 text-center">{guests.adults}</span>
+                          <button
+                            type="button"
+                            onClick={() => incrementGuests('adults')}
+                            className="w-8 h-8 rounded-full border border-sand-300 flex items-center justify-center hover:bg-sand-100"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-ocean-900">Children</span>
+                        <div className="flex items-center space-x-3">
+                          <button
+                            type="button"
+                            onClick={() => decrementGuests('children')}
+                            className="w-8 h-8 rounded-full border border-sand-300 flex items-center justify-center hover:bg-sand-100"
+                            disabled={guests.children <= 0}
+                          >
+                            -
+                          </button>
+                          <span className="w-8 text-center">{guests.children}</span>
+                          <button
+                            type="button"
+                            onClick={() => incrementGuests('children')}
+                            className="w-8 h-8 rounded-full border border-sand-300 flex items-center justify-center hover:bg-sand-100"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="grid grid-cols-1 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-ocean-900 mb-2">
+                Full Name
+              </label>
+              <input
+                {...register('name', { required: 'Name is required' })}
+                type="text"
+                className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                placeholder="Enter your full name"
+              />
+              {errors.name && (
+                <p className="mt-1 text-sm text-coral-600">{errors.name.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-ocean-900 mb-2">
+                Email Address
+              </label>
+              <input
+                {...register('email', { 
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: 'Invalid email address'
+                  }
+                })}
+                type="email"
+                className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                placeholder="Enter your email"
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm text-coral-600">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-ocean-900 mb-2">
+                Phone Number
+              </label>
+              <input
+                {...register('phone', { required: 'Phone number is required' })}
+                type="tel"
+                className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent"
+                placeholder="Enter your phone number"
+              />
+              {errors.phone && (
+                <p className="mt-1 text-sm text-coral-600">{errors.phone.message}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Special Requests */}
+          <div>
+            <label className="block text-sm font-medium text-ocean-900 mb-2">
+              Special Requests (Optional)
+            </label>
+            <textarea
+              {...register('requests')}
+              rows="3"
+              className="w-full p-3 border border-sand-300 rounded-lg focus:ring-2 focus:ring-ocean-500 focus:border-transparent resize-none"
+              placeholder="Any special requests or preferences..."
+            />
+          </div>
+
+          {/* Submit Button */}
+          <motion.button
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-coral-500 to-coral-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            disabled={!checkIn || !checkOut}
+          >
+            Complete Booking
+          </motion.button>
+
+          <p className="text-xs text-slate-500 text-center">
+            By booking, you agree to our Terms of Service and Privacy Policy
+          </p>
+        </form>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export default BookingWidget
+```
+
+## Performance Optimization
+
+### **Image Optimization**
+```jsx
+// src/components/common/UI/OptimizedImage.jsx
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+
+const OptimizedImage = ({ 
+  src, 
+  alt, 
+  className = '', 
+  sizes = '100vw',
+  priority = false,
+  ...props 
+}) => {
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [hasError, setHasError] = useState(false)
+
+  // Generate WebP and fallback URLs
+  const webpSrc = src?.replace(/\.(jpg|jpeg|png)$/i, '.webp')
+  
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-r from-sand-200 via-sand-100 to-sand-200 animate-shimmer" />
+      )}
+      
+      <picture>
+        <source srcSet={webpSrc} type="image/webp" />
+        <motion.img
+          src={src}
+          alt={alt}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          loading={priority ? 'eager' : 'lazy'}
+          initial={{ scale: 1.1 }}
+          animate={{ scale: isLoaded ? 1 : 1.1 }}
+          transition={{ duration: 0.6 }}
+          {...props}
+        />
+      </picture>
+      
+      {hasError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-sand-100">
+          <span className="text-slate-400">Image not available</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default OptimizedImage
+```
+
+### **Lazy Loading Hook**
+```javascript
+// src/hooks/useIntersectionObserver.js
+import { useEffect, useRef, useState } from 'react'
+
+const useIntersectionObserver = (options = {}) => {
+  const [isIntersecting, setIsIntersecting] = useState(false)
+  const [hasIntersected, setHasIntersected] = useState(false)
+  const targetRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isIntersecting = entry.isIntersecting
+        setIsIntersecting(isIntersecting)
+        
+        if (isIntersecting && !hasIntersected) {
+          setHasIntersected(true)
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+        ...options
+      }
+    )
+
+    const currentTarget = targetRef.current
+    if (currentTarget) {
+      observer.observe(currentTarget)
+    }
+
+    return () => {
+      if (currentTarget) {
+        observer.unobserve(currentTarget)
+      }
+    }
+  }, [hasIntersected, options])
+
+  return { targetRef, isIntersecting, hasIntersected }
+}
+
+export default useIntersectionObserver
+```
+
+## Deployment Configuration
+
+### **Build Optimization**
+```javascript
+// vite.config.js (additional optimizations)
+export default defineConfig({
+  // ... previous config
+  build: {
+    target: 'es2015',
+    cssCodeSplit: true,
+    sourcemap: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['framer-motion'],
+          ui: ['@headlessui/react', '@heroicons/react'],
+          forms: ['react-hook-form', 'react-datepicker'],
+          utils: ['date-fns', 'axios']
+        },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.')
+          const ext = info[info.length - 1]
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+            return `assets/images/[name]-[hash][extname]`
+          }
+          if (/woff2?|eot|ttf|otf/i.test(ext)) {
+            return `assets/fonts/[name]-[hash][extname]`
+          }
+          return `assets/[name]-[hash][extname]`
+        }
+      }
+    }
+  }
+})
+```
+
+### **Environment Variables**
+```bash
+# .env.example
+VITE_API_BASE_URL=https://api.barracabanas.com
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+VITE_ANALYTICS_ID=your_analytics_id
+VITE_SENTRY_DSN=your_sentry_dsn
+VITE_ENVIRONMENT=production
+```
+
+This comprehensive guide provides everything needed to rebuild the Barra Cabanas website exactly as specified, with modern React architecture, performance optimizations, and luxury hotel-inspired design patterns adapted for a coastal resort experience.

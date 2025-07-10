@@ -1,0 +1,18 @@
+This file is a placeholder for the images directory. In a real project, you would have actual image files here.
+
+For a production website, you would need the following images:
+- hero-bg.jpg (Hero section background)
+- about-hero.jpg (About page hero background)
+- services-hero.jpg (Services page hero background)
+- portfolio-hero.jpg (Portfolio page hero background)
+- blog-hero.jpg (Blog page hero background)
+- contact-hero.jpg (Contact page hero background)
+- cta-bg.jpg (Call-to-action section background)
+- about-story.jpg (Image for the About page story section)
+- team1.jpg, team2.jpg, team3.jpg, team4.jpg (Team member photos)
+- project1.jpg through project6.jpg (Portfolio project images)
+- service-cnc.jpg, service-design.jpg, service-web.jpg, service-graphic.jpg, service-social.jpg, service-software.jpg (Service section images)
+- blog1.jpg through blog6.jpg (Blog post images)
+- testimonial1.jpg, testimonial2.jpg, testimonial3.jpg (Testimonial author images)
+
+For now, the website will use these placeholder references, but they won't actually display images.

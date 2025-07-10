@@ -1,0 +1,605 @@
+{
+  "graphicDesign": {
+    "name": "Graphic Design Services",
+    "categories": [
+      {
+        "name": "Corporate Identity & Branding Packages",
+        "description": "These packages include a custom logo design plus complementary stationery items to create a unified brand identity.",
+        "services": [
+          {
+            "id": "corp-identity-1",
+            "name": "Corporate Identity Pack 1",
+            "description": "Includes: Final logo design, business card, letterhead, and email signature design (with 2 revision rounds)",
+            "price": 3160
+          },
+          {
+            "id": "corp-identity-2",
+            "name": "Corporate Identity Pack 2",
+            "description": "Includes: 4 unique logo concepts, business card, letterhead, email signature, and 2 revisions",
+            "price": 4080
+          },
+          {
+            "id": "corp-identity-3",
+            "name": "Corporate Identity Pack 3",
+            "description": "Includes: 6 unique logo concepts plus business card, letterhead, email signature, and 2 revisions",
+            "price": 5410
+          }
+        ]
+      },
+      {
+        "name": "Logo & Stationery Design",
+        "description": "Individual logo and stationery design services.",
+        "services": [
+          {
+            "id": "logo-2-option",
+            "name": "2-Option Logo Design",
+            "description": "Two unique logo concepts with revisions",
+            "price": 2080
+          },
+          {
+            "id": "logo-4-option",
+            "name": "4-Option Logo Design",
+            "description": "Four unique logo concepts with revisions",
+            "price": 3120
+          },
+          {
+            "id": "logo-redraw",
+            "name": "Logo Redraw",
+            "description": "For existing logos needing refinement",
+            "price": 940
+          },
+          {
+            "id": "business-card",
+            "name": "Business Card Design",
+            "description": "Custom business card design",
+            "price": 840
+          },
+          {
+            "id": "letterhead",
+            "name": "Letterhead Design",
+            "description": "Custom letterhead design",
+            "price": 890
+          },
+          {
+            "id": "email-sig-static",
+            "name": "Static Email Signature",
+            "description": "Image-based email signature",
+            "price": 840
+          },
+          {
+            "id": "email-sig-html",
+            "name": "Interactive Email Signature",
+            "description": "HTML-coded interactive signature",
+            "price": 1560
+          }
+        ]
+      },
+      {
+        "name": "Additional Print & Digital Media Designs",
+        "description": "Optional add-ons to support your overall brand image.",
+        "services": [
+          {
+            "id": "brochure",
+            "name": "Brochure (Z-Fold)",
+            "description": "Custom brochure design",
+            "price": 2590,
+            "priceType": "starting"
+          },
+          {
+            "id": "poster",
+            "name": "Poster Design",
+            "description": "A4 to A0 sizes available",
+            "price": 1560,
+            "priceType": "starting"
+          },
+          {
+            "id": "company-profile",
+            "name": "Company Profile",
+            "description": "Professional company profile design",
+            "price": 780,
+            "priceType": "per page"
+          },
+          {
+            "id": "flyer",
+            "name": "Flyer Design",
+            "description": "A6–A4 sizes available",
+            "price": 780,
+            "priceType": "starting"
+          },
+          {
+            "id": "powerpoint",
+            "name": "PowerPoint Presentation",
+            "description": "Custom template design",
+            "price": 3230
+          }
+        ]
+      }
+    ]
+  },
+  "webDevelopment": {
+    "name": "Web Design & Development Services",
+    "description": "Our web design packages are designed to be fully custom, responsive, and include essential on-page SEO so that your site not only looks professional but also converts visitors into clients.",
+    "categories": [
+      {
+        "name": "Website Packages",
+        "description": "Complete website design and development packages.",
+        "services": [
+          {
+            "id": "single-page-website",
+            "name": "Single Page Website ⭐ MOST POPULAR",
+            "description": "Perfect for small businesses! Professional single-page website with modern design, mobile responsive, contact form, and basic SEO. Great for showcasing your business essentials.",
+            "price": 1500,
+            "popular": true
+          },
+          {
+            "id": "basic-website",
+            "name": "Basic Website Package",
+            "description": "Up to 5 custom-designed pages (Home, About, Services/Products, Contact, etc.), responsive design, basic SEO integration and contact form",
+            "price": 4500
+          },
+          {
+            "id": "standard-website",
+            "name": "Standard Business Website",
+            "description": "6–10 pages, custom design with a CMS (e.g. WordPress) for easy updates, integration of social media links, basic blog setup, and enhanced SEO",
+            "price": 7500
+          },
+          {
+            "id": "corporate-website",
+            "name": "Corporate/Custom Website",
+            "description": "Up to 20 pages with advanced features (custom functionality, higher-level SEO, multimedia integration)",
+            "price": 12000
+          },
+          {
+            "id": "ecommerce-website",
+            "name": "E-commerce Website",
+            "description": "Up to 30 pages, integrated payment gateway, product catalog, and shopping cart",
+            "price": 15000
+          }
+        ]
+      },
+      {
+        "name": "Monthly Hosting & Maintenance Packages",
+        "description": "Keep your website running smoothly with ongoing support and updates.",
+        "services": [
+          {
+            "id": "basic-hosting",
+            "name": "Basic Package",
+            "description": "Includes essential hosting and periodic maintenance",
+            "price": 300,
+            "priceType": "per month"
+          },
+          {
+            "id": "standard-hosting",
+            "name": "Standard Package",
+            "description": "Includes hosting, maintenance, and basic technical support",
+            "price": 500,
+            "priceType": "per month"
+          },
+          {
+            "id": "premium-hosting",
+            "name": "Premium Package",
+            "description": "Includes hosting, advanced support, and SEO update services",
+            "price": 800,
+            "priceType": "per month"
+          }
+        ]
+      },
+      {
+        "name": "Additional Web Services & Add-Ons",
+        "description": "Extra services to enhance your website.",
+        "services": [
+          {
+            "id": "domain-registration",
+            "name": "Domain Registration",
+            "description": "First year often included; renewal fee",
+            "price": 250,
+            "priceType": "per year"
+          },
+          {
+            "id": "custom-features",
+            "name": "Custom Features/Integrations",
+            "description": "Booking forms, custom plugins, etc.",
+            "price": 1000,
+            "priceType": "starting"
+          }
+        ]
+      }
+    ]
+  },
+  "cncConversion": {
+    "name": "CNC Conversion Services",
+    "categories": [
+      {
+        "name": "Mill & Lathe CNC Conversion Packages",
+        "description": "Convert your manual machines to CNC operation.",
+        "services": [
+          {
+            "id": "basic-cnc",
+            "name": "Basic CNC Conversion",
+            "description": "Conversion of manual mill/lathe to basic CNC operation, includes stepper motors, drivers, and basic control system",
+            "priceRange": [25000, 45000]
+          },
+          {
+            "id": "standard-cnc",
+            "name": "Standard CNC Conversion",
+            "description": "Includes servo motors, advanced control system, basic software integration",
+            "priceRange": [45000, 75000]
+          },
+          {
+            "id": "premium-cnc",
+            "name": "Premium CNC Conversion",
+            "description": "Full conversion with high-precision servo motors, advanced control system, custom software integration, and training",
+            "priceRange": [75000, 150000]
+          }
+        ]
+      },
+      {
+        "name": "CNC Components & Add-ons",
+        "description": "Individual components and services for CNC machines.",
+        "services": [
+          {
+            "id": "stepper-motor",
+            "name": "Stepper Motor Kit",
+            "description": "Complete kit for one axis",
+            "priceRange": [3500, 6000]
+          },
+          {
+            "id": "servo-motor",
+            "name": "Servo Motor Kit",
+            "description": "Complete kit for one axis",
+            "priceRange": [7500, 12000]
+          },
+          {
+            "id": "control-system",
+            "name": "Control System",
+            "description": "Basic control system with software",
+            "priceRange": [15000, 30000]
+          },
+          {
+            "id": "software-integration",
+            "name": "Custom Software Integration",
+            "description": "Integration with CAD/CAM software",
+            "priceRange": [8000, 15000]
+          },
+          {
+            "id": "training",
+            "name": "Training Session",
+            "description": "Operator training (per day)",
+            "price": 3500,
+            "priceType": "per day"
+          },
+          {
+            "id": "spindle-upgrade",
+            "name": "Spindle Upgrade",
+            "description": "High-precision spindle replacement with variable speed control",
+            "priceRange": [12000, 25000]
+          },
+          {
+            "id": "ball-screw",
+            "name": "Ball Screw Conversion",
+            "description": "Precision ball screw upgrade for improved accuracy and reduced backlash",
+            "priceRange": [4500, 8000]
+          },
+          {
+            "id": "linear-rails",
+            "name": "Linear Rail System",
+            "description": "High-precision linear rail system for smooth, accurate motion",
+            "priceRange": [6000, 12000]
+          },
+          {
+            "id": "touch-probe",
+            "name": "Touch Probe System",
+            "description": "Precision measurement and workpiece setup system",
+            "priceRange": [3500, 7500]
+          },
+          {
+            "id": "tool-changer",
+            "name": "Automatic Tool Changer",
+            "description": "Automated tool changing system for increased productivity",
+            "priceRange": [15000, 35000]
+          }
+        ]
+      },
+      {
+        "name": "Engineering Design Services",
+        "description": "Professional engineering design and consultation services.",
+        "services": [
+          {
+            "id": "cad-design",
+            "name": "CAD Design Services",
+            "description": "Custom 2D/3D CAD design for mechanical components and assemblies",
+            "price": 750,
+            "priceType": "per day"
+          },
+          {
+            "id": "cam-programming",
+            "name": "CAM Programming",
+            "description": "Custom CAM programming for CNC machining operations",
+            "price": 850,
+            "priceType": "per day"
+          },
+          {
+            "id": "reverse-engineering",
+            "name": "Reverse Engineering",
+            "description": "Detailed measurement and CAD recreation of existing parts",
+            "priceRange": [5000, 15000]
+          },
+          {
+            "id": "prototype-development",
+            "name": "Prototype Development",
+            "description": "Design and fabrication of functional prototypes",
+            "priceRange": [8000, 25000]
+          },
+          {
+            "id": "engineering-consultation",
+            "name": "Engineering Consultation",
+            "description": "Expert consultation on manufacturing processes and design optimization",
+            "price": 1200,
+            "priceType": "per day"
+          },
+          {
+            "id": "fea-analysis",
+            "name": "FEA Analysis",
+            "description": "Finite Element Analysis for stress, thermal, and vibration analysis",
+            "priceRange": [4500, 12000]
+          }
+        ]
+      }
+    ]
+  },
+  "digitalMarketing": {
+    "name": "Digital Marketing Services",
+    "categories": [
+      {
+        "name": "Social Media Marketing",
+        "description": "Comprehensive social media management services.",
+        "services": [
+          {
+            "id": "basic-social",
+            "name": "Basic Social Media Package",
+            "description": "Management of 2 platforms, 12 posts per month, basic engagement",
+            "price": 3500,
+            "priceType": "per month"
+          },
+          {
+            "id": "standard-social",
+            "name": "Standard Social Media Package",
+            "description": "Management of 3 platforms, 20 posts per month, content calendar, engagement strategy",
+            "price": 5500,
+            "priceType": "per month"
+          },
+          {
+            "id": "premium-social",
+            "name": "Premium Social Media Package",
+            "description": "Management of 4+ platforms, 30+ posts per month, content creation, analytics reporting, paid campaign management",
+            "price": 8500,
+            "priceType": "per month"
+          }
+        ]
+      },
+      {
+        "name": "Search Engine Optimization (SEO)",
+        "description": "Improve your website's visibility in search engines.",
+        "services": [
+          {
+            "id": "seo-audit",
+            "name": "SEO Audit",
+            "description": "Comprehensive website analysis and recommendations",
+            "price": 3000
+          },
+          {
+            "id": "basic-seo",
+            "name": "Basic SEO Package",
+            "description": "On-page optimization, keyword research, monthly reporting",
+            "price": 2500,
+            "priceType": "per month"
+          },
+          {
+            "id": "standard-seo",
+            "name": "Standard SEO Package",
+            "description": "On-page and off-page optimization, content strategy, competitor analysis",
+            "price": 4500,
+            "priceType": "per month"
+          },
+          {
+            "id": "premium-seo",
+            "name": "Premium SEO Package",
+            "description": "Comprehensive SEO strategy, content creation, link building, advanced analytics",
+            "price": 7500,
+            "priceType": "per month"
+          }
+        ]
+      },
+      {
+        "name": "Google Ads & PPC Campaigns",
+        "description": "Pay-per-click advertising management.",
+        "services": [
+          {
+            "id": "google-ads-setup",
+            "name": "Google Ads Setup",
+            "description": "Account setup, campaign structure, keyword research",
+            "price": 3500
+          },
+          {
+            "id": "basic-ppc",
+            "name": "Basic PPC Management",
+            "description": "Single platform, campaign management, basic reporting",
+            "price": 2500,
+            "priceType": "per month + ad spend"
+          },
+          {
+            "id": "standard-ppc",
+            "name": "Standard PPC Management",
+            "description": "Multiple platforms, A/B testing, conversion tracking",
+            "price": 4000,
+            "priceType": "per month + ad spend"
+          },
+          {
+            "id": "premium-ppc",
+            "name": "Premium PPC Management",
+            "description": "Comprehensive strategy, landing page optimization, advanced analytics",
+            "price": 6500,
+            "priceType": "per month + ad spend"
+          }
+        ]
+      }
+    ]
+  },
+  "softwareDevelopment": {
+    "name": "Software Development Services",
+    "categories": [
+      {
+        "name": "Mobile App Development",
+        "description": "Custom mobile application development for Android and iOS.",
+        "services": [
+          {
+            "id": "basic-app",
+            "name": "Basic Mobile App",
+            "description": "Single platform (Android or iOS), up to 5 screens, basic functionality",
+            "priceRange": [45000, 75000]
+          },
+          {
+            "id": "standard-app",
+            "name": "Standard Mobile App",
+            "description": "Cross-platform, up to 10 screens, database integration",
+            "priceRange": [75000, 150000]
+          },
+          {
+            "id": "premium-app",
+            "name": "Premium Mobile App",
+            "description": "Cross-platform, complex functionality, API integrations, admin dashboard",
+            "priceRange": [150000, 300000]
+          }
+        ]
+      },
+      {
+        "name": "Custom Software Development",
+        "description": "Tailored software solutions for businesses.",
+        "services": [
+          {
+            "id": "small-business-software",
+            "name": "Small Business Solution",
+            "description": "Basic functionality, single-user system",
+            "priceRange": [35000, 75000]
+          },
+          {
+            "id": "medium-business-software",
+            "name": "Medium Business Solution",
+            "description": "Multi-user system, database integration, reporting",
+            "priceRange": [75000, 150000]
+          },
+          {
+            "id": "enterprise-software",
+            "name": "Enterprise Solution",
+            "description": "Complex system with multiple modules, integrations, and advanced reporting",
+            "priceRange": [150000, null]
+          }
+        ]
+      },
+      {
+        "name": "Maintenance & Support",
+        "description": "Ongoing support and maintenance for software applications.",
+        "services": [
+          {
+            "id": "basic-support",
+            "name": "Basic Support",
+            "description": "Bug fixes, minor updates",
+            "price": 3500,
+            "priceType": "per month"
+          },
+          {
+            "id": "standard-support",
+            "name": "Standard Support",
+            "description": "Bug fixes, updates, feature enhancements",
+            "price": 6500,
+            "priceType": "per month"
+          },
+          {
+            "id": "premium-support",
+            "name": "Premium Support",
+            "description": "24/7 support, priority bug fixes, regular updates, new features",
+            "price": 12000,
+            "priceType": "per month"
+          }
+        ]
+      }
+    ]
+  },
+  "creativeDesign": {
+    "name": "Creative Design & Visualization",
+    "categories": [
+      {
+        "name": "3D Modeling & Rendering",
+        "description": "Professional 3D modeling and rendering services.",
+        "services": [
+          {
+            "id": "basic-3d",
+            "name": "Basic 3D Model",
+            "description": "Single object modeling and basic texturing",
+            "priceRange": [2500, 5000]
+          },
+          {
+            "id": "standard-3d",
+            "name": "Standard 3D Model",
+            "description": "Complex object or small scene with texturing and lighting",
+            "priceRange": [5000, 10000]
+          },
+          {
+            "id": "premium-3d",
+            "name": "Premium 3D Model",
+            "description": "Complex scene with detailed texturing, lighting, and animations",
+            "priceRange": [10000, 25000]
+          }
+        ]
+      },
+      {
+        "name": "Product Visualization",
+        "description": "Showcase your products with high-quality visualizations.",
+        "services": [
+          {
+            "id": "basic-product-viz",
+            "name": "Basic Product Visualization",
+            "description": "Single product, 3-5 renders",
+            "priceRange": [3500, 6000]
+          },
+          {
+            "id": "standard-product-viz",
+            "name": "Standard Product Visualization",
+            "description": "Single product, 5-10 renders with environment",
+            "priceRange": [6000, 12000]
+          },
+          {
+            "id": "premium-product-viz",
+            "name": "Premium Product Visualization",
+            "description": "Multiple products or complex product with animations",
+            "priceRange": [12000, 25000]
+          }
+        ]
+      },
+      {
+        "name": "Technical Illustrations",
+        "description": "Detailed technical drawings and diagrams.",
+        "services": [
+          {
+            "id": "basic-tech-illustration",
+            "name": "Basic Technical Illustration",
+            "description": "Simple technical drawing or diagram",
+            "priceRange": [1500, 3000]
+          },
+          {
+            "id": "standard-tech-illustration",
+            "name": "Standard Technical Illustration",
+            "description": "Detailed technical drawing with multiple views",
+            "priceRange": [3000, 6000]
+          },
+          {
+            "id": "premium-tech-illustration",
+            "name": "Premium Technical Illustration",
+            "description": "Complex technical drawing with animations or interactive elements",
+            "priceRange": [6000, 15000]
+          }
+        ]
+      }
+    ]
+  }
+}
