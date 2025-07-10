@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faCalendarAlt, 
@@ -14,6 +14,40 @@ import {
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './BookingPage.css';
+
+// Memoized DayCell component to prevent unnecessary re-renders
+const DayCell = memo(({ day, monthIndex, bookedDates, properties, formatDate }) => {
+  const date = new Date(2025, monthIndex, day);
+  const dateStr = formatDate(date);
+  const isPast = date < new Date().setHours(0, 0, 0, 0);
+
+  // Check which properties are booked on this date
+  const bookedProperties = properties.filter(property =>
+    bookedDates[property.id]?.includes(dateStr)
+  );
+
+  return (
+    <div
+      className={`day-cell ${isPast ? 'past' : ''} ${bookedProperties.length > 0 ? 'has-bookings' : ''}`}
+      title={bookedProperties.length > 0 ?
+        `Booked: ${bookedProperties.map(p => p.name).join(', ')}` :
+        'Available'
+      }
+    >
+      <span className="day-number">{day}</span>
+      {bookedProperties.length > 0 && (
+        <div className="booking-indicators">
+          {bookedProperties.map(property => (
+            <div
+              key={property.id}
+              className={`booking-dot ${property.id}`}
+            ></div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+});
 
 const BookingPage = () => {
   const [selectedProperty, setSelectedProperty] = useState('');
@@ -61,65 +95,74 @@ const BookingPage = () => {
     }
   ];
 
-  // Mock booked dates - in real app this would come from API
-  useEffect(() => {
-    const generateBookedDates = () => {
-      const bookedDates = {
-        'seaview-cabana': [],
-        'luxury-family-cabana': [],
-        'honeymoon-suite': [],
-        'ocean-breeze-bungalow': []
-      };
+  // Mock booked dates - memoized to prevent recalculation on re-renders
+  const generatedBookedDates = useMemo(() => {
+    const bookedDates = {
+      'seaview-cabana': [],
+      'luxury-family-cabana': [],
+      'honeymoon-suite': [],
+      'ocean-breeze-bungalow': []
+    };
 
-      // Generate realistic booking patterns throughout the year
-      const months = [
-        { month: 0, bookingRate: 0.4 }, // January - moderate
-        { month: 1, bookingRate: 0.3 }, // February - lower
-        { month: 2, bookingRate: 0.5 }, // March - spring break
-        { month: 3, bookingRate: 0.6 }, // April - Easter
-        { month: 4, bookingRate: 0.4 }, // May - moderate
-        { month: 5, bookingRate: 0.7 }, // June - summer start
-        { month: 6, bookingRate: 0.8 }, // July - peak summer
-        { month: 7, bookingRate: 0.8 }, // August - peak summer
-        { month: 8, bookingRate: 0.6 }, // September - moderate
-        { month: 9, bookingRate: 0.5 }, // October - moderate
-        { month: 10, bookingRate: 0.6 }, // November - moderate
-        { month: 11, bookingRate: 0.9 } // December - holidays
-      ];
+    // Generate realistic booking patterns throughout the year
+    const months = [
+      { month: 0, bookingRate: 0.4 }, // January - moderate
+      { month: 1, bookingRate: 0.3 }, // February - lower
+      { month: 2, bookingRate: 0.5 }, // March - spring break
+      { month: 3, bookingRate: 0.6 }, // April - Easter
+      { month: 4, bookingRate: 0.4 }, // May - moderate
+      { month: 5, bookingRate: 0.7 }, // June - summer start
+      { month: 6, bookingRate: 0.8 }, // July - peak summer
+      { month: 7, bookingRate: 0.8 }, // August - peak summer
+      { month: 8, bookingRate: 0.6 }, // September - moderate
+      { month: 9, bookingRate: 0.5 }, // October - moderate
+      { month: 10, bookingRate: 0.6 }, // November - moderate
+      { month: 11, bookingRate: 0.9 } // December - holidays
+    ];
 
-      months.forEach(({ month, bookingRate }) => {
-        const daysInMonth = new Date(2025, month + 1, 0).getDate();
+    months.forEach(({ month, bookingRate }) => {
+      const daysInMonth = new Date(2025, month + 1, 0).getDate();
 
-        Object.keys(bookedDates).forEach(propertyId => {
-          const propertyBookingRate = bookingRate * (0.8 + Math.random() * 0.4); // Vary by property
-          const daysToBook = Math.floor(daysInMonth * propertyBookingRate);
+      Object.keys(bookedDates).forEach(propertyId => {
+        const propertyBookingRate = bookingRate * (0.8 + Math.random() * 0.4); // Vary by property
+        const daysToBook = Math.floor(daysInMonth * propertyBookingRate);
 
-          // Generate random booking periods (1-5 consecutive days)
-          let bookedDaysCount = 0;
-          while (bookedDaysCount < daysToBook) {
-            const startDay = Math.floor(Math.random() * daysInMonth) + 1;
-            const stayLength = Math.floor(Math.random() * 5) + 1; // 1-5 days
+        // Generate random booking periods (1-5 consecutive days)
+        let bookedDaysCount = 0;
+        while (bookedDaysCount < daysToBook) {
+          const startDay = Math.floor(Math.random() * daysInMonth) + 1;
+          const stayLength = Math.floor(Math.random() * 5) + 1; // 1-5 days
 
-            for (let i = 0; i < stayLength && bookedDaysCount < daysToBook; i++) {
-              const day = startDay + i;
-              if (day <= daysInMonth) {
-                const date = new Date(2025, month, day);
-                const dateStr = formatDate(date);
+          for (let i = 0; i < stayLength && bookedDaysCount < daysToBook; i++) {
+            const day = startDay + i;
+            if (day <= daysInMonth) {
+              const date = new Date(2025, month, day);
+              const dateStr = formatDate(date);
 
-                if (!bookedDates[propertyId].includes(dateStr)) {
-                  bookedDates[propertyId].push(dateStr);
-                  bookedDaysCount++;
-                }
+              if (!bookedDates[propertyId].includes(dateStr)) {
+                bookedDates[propertyId].push(dateStr);
+                bookedDaysCount++;
               }
             }
           }
-        });
+        }
       });
+    });
 
-      return bookedDates;
+    return bookedDates;
+  }, []); // Empty dependency array - only calculate once
+
+  // Set the booked dates once when component mounts
+  useEffect(() => {
+    setBookedDates(generatedBookedDates);
+  }, [generatedBookedDates]);
+
+  // Cleanup effect to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      // Cleanup any potential memory leaks
+      setBookedDates({});
     };
-
-    setBookedDates(generateBookedDates());
   }, []);
 
   const [ref, inView] = useInView({
@@ -542,36 +585,15 @@ const BookingPage = () => {
                       {/* Days of the month */}
                       {Array.from({ length: daysInMonth }, (_, dayIndex) => {
                         const day = dayIndex + 1;
-                        const date = new Date(2025, monthIndex, day);
-                        const dateStr = formatDate(date);
-                        const isPast = date < new Date().setHours(0, 0, 0, 0);
-
-                        // Check which properties are booked on this date
-                        const bookedProperties = properties.filter(property =>
-                          bookedDates[property.id]?.includes(dateStr)
-                        );
-
                         return (
-                          <div
+                          <DayCell
                             key={day}
-                            className={`day-cell ${isPast ? 'past' : ''} ${bookedProperties.length > 0 ? 'has-bookings' : ''}`}
-                            title={bookedProperties.length > 0 ?
-                              `Booked: ${bookedProperties.map(p => p.name).join(', ')}` :
-                              'Available'
-                            }
-                          >
-                            <span className="day-number">{day}</span>
-                            {bookedProperties.length > 0 && (
-                              <div className="booking-indicators">
-                                {bookedProperties.map(property => (
-                                  <div
-                                    key={property.id}
-                                    className={`booking-dot ${property.id}`}
-                                  ></div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
+                            day={day}
+                            monthIndex={monthIndex}
+                            bookedDates={bookedDates}
+                            properties={properties}
+                            formatDate={formatDate}
+                          />
                         );
                       })}
                     </div>
