@@ -166,8 +166,8 @@
 }
 
 .service-card:hover {
-  border-color: #4361ee;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-coral-sunset);
+  box-shadow: var(--shadow-lg);
 }
 
 .service-info {
@@ -189,25 +189,25 @@
 
 .service-price {
   font-weight: 700;
-  color: #4361ee;
+  color: var(--color-coral-sunset);
   margin-bottom: 15px;
   font-size: 1.1rem;
 }
 
 .add-service-btn {
-  background-color: #4361ee;
-  color: #fff;
+  background: var(--gradient-sunset);
+  color: var(--color-shell-white);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   padding: 10px 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   width: 100%;
 }
 
 .add-service-btn:hover {
-  background-color: #3a86ff;
+  filter: brightness(1.1);
   transform: translateY(-2px);
 }
 
@@ -243,14 +243,14 @@
 }
 
 .request-quote-btn {
-  background-color: #4361ee;
-  color: #fff;
+  background: var(--gradient-sunset);
+  color: var(--color-shell-white);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   padding: 10px 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -327,9 +327,9 @@
 }
 
 .quantity-btn:hover:not(:disabled) {
-  background-color: #4361ee;
-  color: #fff;
-  border-color: #4361ee;
+  background-color: var(--color-coral-sunset);
+  color: var(--color-shell-white);
+  border-color: var(--color-coral-sunset);
 }
 
 .quantity-btn:disabled {
@@ -519,15 +519,15 @@
 }
 
 .submit-quote-btn {
-  background-color: #4361ee;
-  color: #fff;
+  background: var(--gradient-sunset);
+  color: var(--color-shell-white);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   padding: 12px 20px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   width: 100%;
   display: flex;
   align-items: center;
@@ -536,7 +536,7 @@
 }
 
 .submit-quote-btn:hover {
-  background-color: #3a86ff;
+  filter: brightness(1.1);
   transform: translateY(-2px);
 }
 
@@ -548,7 +548,7 @@
 .form-success h3 {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #4361ee;
+  color: var(--color-coral-sunset);
 }
 
 .form-success p {

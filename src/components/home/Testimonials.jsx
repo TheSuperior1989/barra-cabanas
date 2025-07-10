@@ -9,21 +9,21 @@ import './Testimonials.css';
 const testimonials = [
   {
     id: 1,
-    name: 'Pieter van der Merwe',
-    position: 'CEO, TechInnovate',
-    content: 'SkillAxis Dynamics transformed our outdated manufacturing process with their CNC conversion services. The precision and efficiency gains have been remarkable, and their ongoing support is exceptional.'
+    name: 'Sarah & Michael Thompson',
+    position: 'Anniversary Celebration',
+    content: 'Our stay at Barra Cabanas was absolutely magical. The Ocean Pearl villa exceeded every expectation with its stunning views and luxurious amenities. The private chef service made our anniversary unforgettable. We cannot wait to return!'
   },
   {
     id: 2,
-    name: 'Nomsa Mthembu',
-    position: 'Marketing Director, BrandForward',
-    content: 'The website and branding package delivered by SkillAxis exceeded our expectations. Their team took the time to understand our vision and translated it into a stunning digital presence that has significantly increased our conversions.'
+    name: 'The Rodriguez Family',
+    position: 'Family Holiday',
+    content: 'Coral Breeze was the perfect family retreat. The kids loved the private beach access while we enjoyed the peaceful garden and exceptional concierge service. Every detail was thoughtfully arranged for our comfort and enjoyment.'
   },
   {
     id: 3,
-    name: 'Johan Botha',
-    position: 'Founder, InnovateMech',
-    content: 'Working with SkillAxis on our custom software development project was a seamless experience. Their technical expertise combined with creative problem-solving resulted in an application that has streamlined our operations.'
+    name: 'James & Emma Wilson',
+    position: 'Romantic Getaway',
+    content: 'Sunset Cove provided the most romantic setting imaginable. Watching the sunset from our private deck with champagne was pure bliss. The wellness treatments and personalized service made this the perfect escape from city life.'
   }
 ];
 
@@ -65,9 +65,9 @@ const Testimonials = () => {
     <section className="testimonials" id="testimonials">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Client Testimonials</h2>
+          <h2 className="section-title">Guest Testimonials</h2>
           <p className="section-subtitle">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don't just take our word for it. Here's what our guests have to say about their luxury beach house experience.
           </p>
         </div>
 

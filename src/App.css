@@ -31,12 +31,12 @@ p {
 
 a {
   text-decoration: none;
-  color: #4361ee;
-  transition: color 0.3s ease;
+  color: var(--color-coral-sunset);
+  transition: color var(--transition-normal);
 }
 
 a:hover {
-  color: #3a86ff;
+  color: var(--color-ocean-blue);
 }
 
 /* Buttons */
@@ -53,25 +53,27 @@ a:hover {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
-  color: #fff;
+  background: var(--gradient-sunset);
+  color: var(--color-shell-white);
   border: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.1);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--color-shell-white);
+  border: 2px solid var(--color-shell-white);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
+  border-color: var(--color-coral-sunset);
 }
 
 /* Section Styles */
@@ -92,8 +94,8 @@ a:hover {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #4361ee, #3a86ff);
-  border-radius: 10px;
+  background: var(--gradient-sunset);
+  border-radius: var(--radius-full);
 }
 
 .section-subtitle {
