@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import barraCabanasLogo from '../../assets/images/BarraCabanas_Logo_New.svg';
+import barraCabanasLogo from '../../assets/images/BarraCabanas_Logo_Rearranged.svg';
 import './Navbar.css';
 
 const Navbar = () => {
