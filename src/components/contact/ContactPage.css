@@ -99,14 +99,14 @@
 
 /* Contact links styling */
 .info-card p a {
-  color: var(--color-primary-taupe);
+  color: var(--color-sage-green);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .info-card p a:hover {
-  color: var(--color-primary-taupe);
+  color: var(--color-sage-green);
   text-decoration: underline;
   filter: brightness(1.1);
 }

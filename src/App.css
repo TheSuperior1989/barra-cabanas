@@ -46,7 +46,7 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--color-primary-taupe);
+  color: var(--color-sage-green);
   transition: color var(--transition-normal);
 }
 
