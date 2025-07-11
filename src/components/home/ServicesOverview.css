@@ -3,11 +3,7 @@
   background-color: var(--color-sand-50);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+
 
 .section-header {
   text-align: center;
@@ -51,32 +47,13 @@
   gap: 30px;
   margin-bottom: 50px;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  justify-items: center;
 }
 
-/* Center the last 2 items when they're on their own row */
-.service-card:nth-child(5) {
-  grid-column: 1 / 2;
-  justify-self: end;
-  margin-right: 15px;
-}
 
-.service-card:nth-child(6) {
-  grid-column: 2 / 3;
-  justify-self: start;
-  margin-left: 15px;
-}
-
-/* Responsive: ensure proper centering on different screen sizes */
-@media screen and (max-width: 1200px) {
-  .service-card:nth-child(5),
-  .service-card:nth-child(6) {
-    justify-self: center;
-    margin: 0;
-  }
-}
 
 .service-card {
   background-color: var(--color-shell-white);
@@ -88,6 +65,8 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--color-sand-200);
+  width: 100%;
+  max-width: 350px;
 }
 
 .service-card:hover {
@@ -147,6 +126,16 @@
   100% { transform: translateX(40px) translateY(40px); }
 }
 
+/* Tablet responsive */
+@media screen and (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 900px;
+    gap: 25px;
+  }
+}
+
+/* Mobile responsive */
 @media screen and (max-width: 768px) {
   .services-overview {
     padding: 70px 0;
@@ -158,7 +147,27 @@
 
   .services-grid {
     grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 20px;
   }
 
+  .service-card {
+    max-width: 100%;
+    padding: 25px;
+  }
+}
 
+/* Small mobile responsive */
+@media screen and (max-width: 480px) {
+  .services-overview .container {
+    padding: 0 16px;
+  }
+
+  .services-grid {
+    gap: 15px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
 }
