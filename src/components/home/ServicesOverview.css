@@ -47,13 +47,35 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-bottom: 50px;
   justify-content: center;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Center the last 2 items when they're on their own row */
+.service-card:nth-child(5) {
+  grid-column: 1 / 2;
+  justify-self: end;
+  margin-right: 15px;
+}
+
+.service-card:nth-child(6) {
+  grid-column: 2 / 3;
+  justify-self: start;
+  margin-left: 15px;
+}
+
+/* Responsive: ensure proper centering on different screen sizes */
+@media screen and (max-width: 1200px) {
+  .service-card:nth-child(5),
+  .service-card:nth-child(6) {
+    justify-self: center;
+    margin: 0;
+  }
 }
 
 .service-card {
