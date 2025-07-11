@@ -9,40 +9,10 @@ const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoCanPlay, setVideoCanPlay] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef(null);
   const audioRef = useRef(null);
-
-  // Video playlist - multiple vacation scenes optimized for luxury hospitality
-  const videoPlaylist = [
-    {
-      src: "/videos/1093662-hd_1920_1080_30fps.mp4",
-      title: "Pristine Ocean Waves"
-    },
-    {
-      src: "/videos/14048763_1920_1080_60fps.mp4",
-      title: "Rocky Coast"
-    },
-    {
-      src: "/videos/3115506-uhd_2560_1440_24fps.mp4",
-      title: "Waves Crashing Beachfront"
-    },
-    {
-      src: "/videos/6473319-uhd_2560_1440_25fps.mp4",
-      title: "Coconut Beach Relaxation"
-    },
-    {
-      src: "/videos/6577987-uhd_2732_1318_30fps.mp4",
-      title: "Beach Paradise"
-    },
-    {
-      src: "/videos/9617320-hd_1282_720_30fps.mp4",
-      title: "Child Running on Beach"
-    }
-  ];
 
   // Check if device is mobile for performance optimization
   useEffect(() => {
@@ -56,66 +26,27 @@ const Hero = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Smooth video playlist management with fade transitions
+  // Load video after component mounts
   useEffect(() => {
-    if (!isMobile && videoRef.current && videoLoaded) {
-      const video = videoRef.current;
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setVideoLoaded(true);
+      }, 500); // Small delay for smooth page load
 
-      const handleVideoEnd = () => {
-        console.log('Video ended, starting fade transition...');
-        setIsTransitioning(true);
-
-        // Fade out current video
-        setTimeout(() => {
-          const nextIndex = (currentVideoIndex + 1) % videoPlaylist.length;
-          console.log('Switching from', currentVideoIndex, 'to', nextIndex);
-
-          // Update video source
-          video.src = videoPlaylist[nextIndex].src;
-          video.load();
-
-          // Play new video and fade in
-          const playAndFadeIn = () => {
-            video.play().catch(console.log);
-            setTimeout(() => {
-              setIsTransitioning(false);
-            }, 100); // Quick fade in
-            video.removeEventListener('canplay', playAndFadeIn);
-          };
-
-          video.addEventListener('canplay', playAndFadeIn);
-          setCurrentVideoIndex(nextIndex);
-        }, 800); // Fade out duration
-      };
-
-      video.addEventListener('ended', handleVideoEnd);
-      return () => video.removeEventListener('ended', handleVideoEnd);
+      return () => clearTimeout(timer);
     }
-  }, [isMobile, videoLoaded, currentVideoIndex, videoPlaylist]);
+  }, [isMobile]);
 
-  // Load initial video only
+  // Load audio
   useEffect(() => {
-    if (!isMobile && videoRef.current && videoLoaded && currentVideoIndex === 0) {
-      const video = videoRef.current;
-      console.log('Loading initial video:', videoPlaylist[0].src);
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setAudioLoaded(true);
+      }, 1000); // Load audio after video starts
 
-      video.src = videoPlaylist[0].src;
-      video.load();
-
-      const playWhenReady = () => {
-        console.log('Initial video ready, playing...');
-        video.play().catch(console.log);
-        setVideoCanPlay(true);
-        video.removeEventListener('canplay', playWhenReady);
-      };
-
-      video.addEventListener('canplay', playWhenReady);
-
-      return () => {
-        video.removeEventListener('canplay', playWhenReady);
-      };
+      return () => clearTimeout(timer);
     }
-  }, [isMobile, videoLoaded, videoPlaylist]);
+  }, [isMobile]);
 
   // Independent audio toggle function
   const toggleAudio = () => {
@@ -130,10 +61,10 @@ const Hero = () => {
     }
   };
 
-  // Load audio independently with higher volume
+  // Set audio volume when loaded
   useEffect(() => {
     if (!isMobile && audioRef.current) {
-      audioRef.current.volume = 0.6; // Set volume to 60% (increased from 30%)
+      audioRef.current.volume = 0.6; // Set volume to 60%
     }
   }, [isMobile, audioLoaded]);
 
@@ -172,13 +103,15 @@ const Hero = () => {
           className="hero-video"
           autoPlay
           muted
+          loop
           playsInline
           preload="metadata"
           onCanPlay={handleVideoCanPlay}
           style={{
-            opacity: videoCanPlay && !isTransitioning ? 1 : 0,
-            transition: 'opacity 0.8s ease-in-out'
+            opacity: videoCanPlay ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out'
           }}
+          src="/videos/Hero_Section_MP4_H.264-ACC.mp4"
         >
           {/* Fallback for browsers that don't support the video */}
         </video>
