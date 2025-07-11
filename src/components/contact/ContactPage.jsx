@@ -121,7 +121,6 @@ const ContactPage = () => {
               </div>
               <h3>Phone Number</h3>
               <p><a href="tel:+27833793741">+27 83 379 3741</a></p>
-              <p><a href="tel:+258843123456">+258 84 312 3456</a></p>
             </motion.div>
 
             <motion.div className="info-card" variants={itemVariants}>

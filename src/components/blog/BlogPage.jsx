@@ -218,7 +218,7 @@ const BlogPage = () => {
                       <img src={post.image} alt={post.title} />
                       <div className="blog-category">{post.category}</div>
                     </div>
-                    <div className="blog-content">
+                    <div className="blog-card-content">
                       <h2 className="blog-title">
                         <Link to={`/blog/${post.id}`}>{post.title}</Link>
                       </h2>
