@@ -183,6 +183,14 @@
     width: 100%;
   }
 
+  /* Video now works on mobile */
+  .hero-video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Audio button smaller on mobile */
   .audio-toggle-btn {
     left: 20px;
     width: 45px;

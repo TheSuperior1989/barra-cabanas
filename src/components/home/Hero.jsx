@@ -26,18 +26,16 @@ const Hero = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Load video after component mounts
+  // Load video after component mounts (now works on mobile too)
   useEffect(() => {
-    if (!isMobile) {
-      const timer = setTimeout(() => {
-        setVideoLoaded(true);
-      }, 500); // Small delay for smooth page load
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 500); // Small delay for smooth page load
 
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // Load audio
+  // Load audio (desktop only for better mobile performance)
   useEffect(() => {
     if (!isMobile) {
       const timer = setTimeout(() => {
@@ -96,8 +94,8 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      {/* Video Background - Only on desktop for performance */}
-      {!isMobile && videoLoaded && (
+      {/* Video Background - Now works on mobile too */}
+      {videoLoaded && (
         <video
           ref={videoRef}
           className="hero-video"
