@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './FeaturedProjects.css';
 
-// Sample beach houses data (in a real app, this would come from an API or CMS)
+// Sample beach houses data (Await Liggies for real data)
 const houses = [
   {
     id: 1,

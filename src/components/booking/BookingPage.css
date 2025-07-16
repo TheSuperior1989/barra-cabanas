@@ -94,9 +94,9 @@
 }
 
 .property-select:focus {
-  border-color: var(--color-primary-taupe);
+  border-color: var(--color-sage-green);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(164, 142, 130, 0.2);
+  box-shadow: 0 0 0 3px rgba(135, 167, 143, 0.2);
 }
 
 .date-selection {
@@ -194,10 +194,10 @@
 .guest-controls button {
   width: 35px;
   height: 35px;
-  border: 2px solid var(--color-primary-taupe);
+  border: 2px solid var(--color-sage-green);
   border-radius: 50%;
   background-color: #fff;
-  color: var(--color-primary-taupe);
+  color: var(--color-sage-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,7 +206,7 @@
 }
 
 .guest-controls button:hover {
-  background-color: var(--color-primary-taupe);
+  background-color: var(--color-sage-green);
   color: #fff;
 }
 
@@ -244,8 +244,8 @@
 .summary-item.total {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--color-primary-taupe);
-  border-top: 2px solid var(--color-primary-taupe);
+  color: var(--color-sage-green);
+  border-top: 2px solid var(--color-sage-green);
   margin-top: 10px;
   padding-top: 15px;
 }
@@ -343,7 +343,7 @@
 }
 
 .calendar-day:hover:not(.booked):not(.past) {
-  background-color: rgba(164, 142, 130, 0.2);
+  background-color: rgba(135, 167, 143, 0.2);
 }
 
 .calendar-day.empty {
@@ -362,12 +362,12 @@
 }
 
 .calendar-day.selected {
-  background-color: var(--color-primary-taupe);
+  background-color: var(--color-sage-green);
   color: #fff;
 }
 
 .calendar-day.in-range {
-  background-color: rgba(164, 142, 130, 0.3);
+  background-color: rgba(135, 167, 143, 0.3);
 }
 
 .calendar-legend {
@@ -399,7 +399,7 @@
 }
 
 .legend-color.selected {
-  background-color: var(--color-primary-taupe);
+  background-color: var(--color-sage-green);
 }
 
 .calendar-close {
@@ -436,7 +436,7 @@
 .yearly-calendar-header {
   padding: 40px 50px;
   text-align: center;
-  background: linear-gradient(135deg, var(--color-primary-taupe) 0%, #b4a096 100%);
+  background: #4a4a4a;
   color: white;
 }
 
@@ -510,8 +510,8 @@
 }
 
 .month-header {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: white;
+  background: rgba(135, 167, 143, 0.1);
+  color: #4a4a4a;
   padding: 20px;
   text-align: center;
 }

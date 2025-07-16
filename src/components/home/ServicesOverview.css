@@ -1,6 +1,6 @@
 .services-overview {
   padding: 60px 0 100px 0;
-  background-color: var(--color-sand-50);
+  background-color: var(--color-light-grey);
 }
 
 
@@ -72,7 +72,7 @@
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary-taupe);
+  border-color: var(--color-sage-green);
 }
 
 .service-icon {
@@ -84,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary-taupe);
+  background-color: #4a4a4a;
   border-radius: var(--radius-full);
 }
 

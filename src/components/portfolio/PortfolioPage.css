@@ -84,15 +84,15 @@
 }
 
 .filter-btn:hover {
-  background-color: rgba(164, 142, 130, 0.1);
-  color: var(--color-primary-taupe);
-  border-color: var(--color-primary-taupe);
+  background-color: rgba(135, 167, 143, 0.1);
+  color: var(--color-sage-green);
+  border-color: var(--color-sage-green);
 }
 
 .filter-btn.active {
-  background-color: var(--color-primary-taupe);
+  background-color: var(--color-sage-green);
   color: #fff;
-  border-color: var(--color-primary-taupe);
+  border-color: var(--color-sage-green);
 }
 
 .portfolio-grid {
@@ -153,7 +153,7 @@
 .view-project {
   display: inline-block;
   padding: 12px 30px;
-  background: var(--gradient-taupe);
+  background: var(--gradient-sage);
   color: #fff;
   text-decoration: none;
   border-radius: 50px;

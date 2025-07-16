@@ -151,10 +151,10 @@ const Hero = () => {
           className="hero-text"
         >
           <h1 className="hero-title">
-            Experience Luxury <span className="highlight sage-green">Beach House Living</span>
+            Experience Luxury <span className="highlight sage-green">Beach Houses</span>
           </h1>
           <p className="hero-subtitle">
-            Experience barefoot luxury at its finest. Nestled on the pristine shores of Mozambique, Barra Cabanas offers exclusive beachside living with panoramic ocean views, elegant design, and unmatched comfort — your ultimate tropical escape awaits.
+            Experience barefoot luxury at its finest. Nestled on the pristine shores of Mozambique, Barra Cabanas offers exclusive beachside accomodation with panoramic ocean views, elegant design, and unmatched comfort — your ultimate tropical escape awaits.
           </p>
           <div className="hero-buttons">
             <Link to="/services" className="btn btn-primary">

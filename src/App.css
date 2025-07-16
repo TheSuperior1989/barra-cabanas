@@ -71,15 +71,16 @@ a:hover {
 }
 
 .btn-primary {
-  background-color: var(--color-primary-taupe) !important;
+  background-color: var(--color-sage-green) !important;
   color: var(--color-shell-white) !important;
   fill: var(--color-shell-white) !important;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(164, 142, 130, 0.3);
+  box-shadow: 0 4px 12px rgba(135, 167, 143, 0.3);
   filter: brightness(1.05);
+  background-color: var(--color-palm-green) !important;
 }
 
 .btn-secondary {
@@ -112,7 +113,7 @@ a:hover {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: var(--gradient-taupe);
+  background: var(--gradient-sage);
   border-radius: var(--radius-full);
 }
 

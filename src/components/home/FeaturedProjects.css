@@ -1,6 +1,6 @@
 .featured-projects {
   padding: 100px 0 60px 0;
-  background-color: var(--color-shell-white);
+  background-color: var(--color-light-grey);
 }
 
 .projects-grid {
@@ -26,7 +26,7 @@
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary-taupe);
+  border-color: var(--color-sage-green);
 }
 
 .project-image {
@@ -67,7 +67,7 @@
 .project-link {
   display: inline-block;
   padding: 0.92857rem 1.57143rem;
-  background-color: var(--color-primary-taupe);
+  background-color: var(--color-sage-green);
   color: var(--color-shell-white);
   text-decoration: none;
   border-radius: 999rem;
@@ -77,6 +77,12 @@
   font-family: var(--font-body);
   transform: translateY(20px);
   transition: all var(--transition-normal);
+}
+
+.project-link:hover {
+  background-color: var(--color-palm-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(135, 167, 143, 0.3);
 }
 
 .project-card:hover .project-link {

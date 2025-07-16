@@ -6,7 +6,7 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* Height of the navbar */
+  padding-top: 0; /* No padding since navbar is transparent */
 }
 
 /* Scroll to top button */

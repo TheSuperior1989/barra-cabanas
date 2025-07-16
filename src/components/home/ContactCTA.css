@@ -1,26 +1,68 @@
 .contact-cta {
   padding: 100px 0;
-  background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&h=1080&fit=crop');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   position: relative;
   color: #fff;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
 }
 
+/* Scrolling Images Background */
+.scrolling-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.image-track {
+  display: flex;
+  width: calc(400px * 12); /* 12 images * 400px width */
+  height: 100%;
+  animation: scrollImages 30s linear infinite;
+}
+
+.image-track img {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-400px * 6)); /* Move by half the images for seamless loop */
+  }
+}
+
+/* CTA Overlay */
 .cta-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(26, 26, 46, 0.7) 100%);
-  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.85) 0%,
+    rgba(135, 167, 143, 0.75) 50%,
+    rgba(74, 124, 89, 0.85) 100%
+  );
+  z-index: 2;
 }
 
 .cta-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -58,6 +100,24 @@
 @media screen and (max-width: 768px) {
   .contact-cta {
     padding: 70px 0;
+    min-height: 400px;
+  }
+
+  .image-track {
+    width: calc(300px * 12); /* Smaller images on mobile */
+  }
+
+  .image-track img {
+    width: 300px;
+  }
+
+  @keyframes scrollImages {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 6)); /* Adjust for mobile image width */
+    }
   }
 
   .cta-title {

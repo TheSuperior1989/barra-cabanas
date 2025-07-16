@@ -1,8 +1,45 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserTie, faGlobe, faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import './AboutPage.css';
+
+// Word Carousel Component
+const WordCarousel = ({ title, words, icon }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [words]);
+
+  return (
+    <motion.div className="word-carousel-card" variants={{
+      hidden: { y: 50, opacity: 0 },
+      visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+    }}>
+      <div className="carousel-icon">
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <h3 className="carousel-title">{title}</h3>
+      <div className="animated-word-container">
+        <motion.p
+          key={index}
+          className="animated-word"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+        >
+          {words[index]}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+};
 
 const AboutPage = () => {
   const [ref, inView] = useInView({
@@ -50,22 +87,75 @@ const AboutPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="about-content"
+            className="story-wrapper"
           >
-            <motion.div className="about-text" variants={itemVariants}>
-              <h2 className="section-title">Our Story</h2>
-              <p>
-                Barra Cabanas was born from a deep love for the Mozambican coastline and a dream to share its magic with the world. Founded by Jaco Ligthelm and his partner Mariska van der Merwe, our journey began as a passion project — a way to blend luxury, nature, and authentic Mozambican charm into one unforgettable destination.
-              </p>
-              <p>
-                From humble beginnings, we've grown into a collection of exclusive beachfront homes nestled along the golden shores of Barra, a tropical paradise just outside Inhambane. Each cabana is designed to reflect the spirit of the ocean — tranquil, refined, and in harmony with its surroundings.
-              </p>
-              <p>
-                We believe true luxury lies in simplicity, serenity, and a deep connection with nature. Whether you're here for romance, adventure, or pure relaxation, Barra Cabanas offers a sanctuary where you can unwind in style and reconnect with what matters most.
-              </p>
+            {/* Story Header */}
+            <motion.div className="story-header" variants={itemVariants}>
+              <h2 className="story-title">Our Story</h2>
+              <div className="story-subtitle">Where Dreams Meet the Ocean</div>
             </motion.div>
-            <motion.div className="about-image" variants={itemVariants}>
-              <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Luxury Beach Villa Interior Design" />
+
+            {/* Story Timeline */}
+            <div className="story-timeline">
+              <motion.div className="timeline-item" variants={itemVariants}>
+                <div className="timeline-marker">
+                  <div className="timeline-dot"></div>
+                </div>
+                <div className="timeline-content">
+                  <h3 className="timeline-title">The Beginning</h3>
+                  <p className="timeline-text">
+                    Barra Cabanas was born from a deep love for the Mozambican coastline and a dream to share its magic with the world. Founded by Jaco Ligthelm and his partner Dirk Ligthelm, our journey began as a passion project — a way to blend luxury, nature, and authentic Mozambican charm into one unforgettable destination.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div className="timeline-item" variants={itemVariants}>
+                <div className="timeline-marker">
+                  <div className="timeline-dot"></div>
+                </div>
+                <div className="timeline-content">
+                  <h3 className="timeline-title">The Vision</h3>
+                  <p className="timeline-text">
+                    From humble beginnings, we've grown into a collection of exclusive beachfront homes nestled along the golden shores of Barra, a tropical paradise just outside Inhambane. Each cabana is designed to reflect the spirit of the ocean — tranquil, refined, and in harmony with its surroundings.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div className="timeline-item" variants={itemVariants}>
+                <div className="timeline-marker">
+                  <div className="timeline-dot"></div>
+                </div>
+                <div className="timeline-content">
+                  <h3 className="timeline-title">Today</h3>
+                  <p className="timeline-text">
+                    We believe true luxury lies in simplicity, serenity, and a deep connection with nature. Whether you're here for romance, adventure, or pure relaxation, Barra Cabanas offers a sanctuary where you can unwind in style and reconnect with what matters most.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Story Image Gallery */}
+            <motion.div className="story-gallery" variants={itemVariants}>
+              <div className="gallery-grid">
+                <div className="gallery-item gallery-large">
+                  <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop" alt="Barra Cabanas Luxury Villa" />
+                  <div className="gallery-overlay">
+                    <span className="gallery-caption">Luxury Beachfront Villas</span>
+                  </div>
+                </div>
+                <div className="gallery-item">
+                  <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=300&h=300&fit=crop" alt="Mozambique Coastline" />
+                  <div className="gallery-overlay">
+                    <span className="gallery-caption">Pristine Coastline</span>
+                  </div>
+                </div>
+                <div className="gallery-item">
+                  <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&h=300&fit=crop" alt="Local Culture" />
+                  <div className="gallery-overlay">
+                    <span className="gallery-caption">Local Heritage</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -73,30 +163,33 @@ const AboutPage = () => {
 
       <section className="about-mission">
         <div className="container">
-          <div className="mission-content">
-            <div className="mission-box">
-              <h3>Our Mission</h3>
-              <p>
-                To provide world-class beachfront accommodation that celebrates Mozambique's natural beauty, promotes local culture, and delivers personalized, unforgettable guest experiences.
-              </p>
-            </div>
-            <div className="mission-box">
-              <h3>Our Vision</h3>
-              <p>
-                To be Mozambique's leading luxury beach house destination, known for excellence, sustainability, and heartfelt hospitality.
-              </p>
-            </div>
-            <div className="mission-box">
-              <h3>Our Values</h3>
-              <ul>
-                <li>Authenticity – Honoring local culture and environment</li>
-                <li>Excellence – Attention to every detail</li>
-                <li>Sustainability – Protecting what makes Barra special</li>
-                <li>Warmth – Genuine, personalized hospitality</li>
-                <li>Elegance – Understated, timeless design</li>
-              </ul>
-            </div>
-          </div>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.3 } }
+            }}
+            initial="hidden"
+            animate="visible"
+            className="word-carousel-grid"
+          >
+            <WordCarousel
+              title="Our Mission"
+              words={["Celebrate", "Promote", "Deliver"]}
+              icon={faGlobe}
+            />
+
+            <WordCarousel
+              title="Our Vision"
+              words={["Excellence", "Luxury", "Sustainability"]}
+              icon={faEye}
+            />
+
+            <WordCarousel
+              title="Our Values"
+              words={["Authenticity", "Warmth", "Elegance", "Excellence", "Sustainability"]}
+              icon={faHeart}
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -123,10 +216,10 @@ const AboutPage = () => {
               <div className="member-icon">
                 <FontAwesomeIcon icon={faUser} />
               </div>
-              <h3 className="member-name">Mariska van der Merwe</h3>
-              <p className="member-position">Co-Founder & Creative Director</p>
+              <h3 className="member-name">Dirk Ligthelm</h3>
+              <p className="member-position">Co-Founder & Operations Director</p>
               <p className="member-bio">
-                Mariska brings a refined design sensibility to Barra Cabanas, blending local textures and modern comfort to create interiors that are both luxurious and welcoming.
+                Dirk brings extensive operational expertise to Barra Cabanas, ensuring seamless guest experiences through meticulous attention to detail and innovative hospitality solutions that exceed expectations.
               </p>
             </div>
           </div>

@@ -98,15 +98,16 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary-taupe) !important;
+  background-color: var(--color-sage-green) !important;
   color: var(--color-shell-white) !important;
   border: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(164, 142, 130, 0.3);
+  box-shadow: 0 4px 12px rgba(135, 167, 143, 0.3);
   filter: brightness(1.05);
+  background-color: var(--color-palm-green) !important;
 }
 
 .btn-secondary {
@@ -118,7 +119,7 @@
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
-  border-color: var(--color-primary-taupe);
+  border-color: var(--color-sage-green);
 }
 
 /* Audio Toggle Button */

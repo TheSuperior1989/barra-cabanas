@@ -73,14 +73,14 @@
 
 .info-icon {
   font-size: 2rem;
-  color: var(--color-primary-taupe);
+  color: var(--color-sage-green);
   margin-bottom: 20px;
   width: 70px;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(164, 142, 130, 0.1);
+  background-color: rgba(135, 167, 143, 0.1);
   border-radius: 50%;
   margin: 0 auto 20px;
 }

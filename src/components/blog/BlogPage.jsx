@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './BlogPage.css';
 
-// Sample blog posts data (in a real app, this would come from an API or CMS)
+
 const blogPosts = [
   {
     id: 1,
