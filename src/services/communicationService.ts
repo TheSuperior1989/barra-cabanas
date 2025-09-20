@@ -382,7 +382,9 @@ export class CommunicationService {
           sentAt: new Date().toISOString()
         })
     } catch (error) {
-      console.error('Error logging communication:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error logging communication', { error: error instanceof Error ? error.message : String(error) })
     }
   }
 

@@ -10,11 +10,12 @@ interface GuestAccountData {
   customerId: string
 }
 
-interface BookingApprovalData {
+export interface BookingApprovalData {
   bookingId: string
   finalPrice?: number
   notes?: string
   checkInInstructions?: string
+  adminNotes?: string
 }
 
 /**

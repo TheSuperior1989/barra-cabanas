@@ -168,8 +168,11 @@ const BookingPage = () => {
     loadData();
   }, []);
 
-  // Subscribe to real-time updates
+  // MEMORY LEAK FIX: Subscribe to real-time updates ONLY for website booking page
   useEffect(() => {
+    // This is the website booking page - real-time is needed for availability
+    console.log('📡 Website booking page - enabling real-time availability updates')
+
     const subscription = subscribeToBookingUpdates((payload) => {
       console.log('📡 Real-time booking update:', payload);
       // Reload booked dates when bookings change
@@ -177,6 +180,7 @@ const BookingPage = () => {
     });
 
     return () => {
+      console.log('🧹 Website booking page cleanup - removing subscription')
       subscription.unsubscribe();
     };
   }, []);
@@ -292,7 +296,7 @@ const BookingPage = () => {
     if (!property) return 0;
 
     const nights = calculateNights();
-    const baseTotal = property.basePrice * nights;
+    const baseTotal = property.price * nights;
 
     // Add potential extras (cleaning fee, etc.)
     const cleaningFee = 500; // Standard cleaning fee
@@ -308,14 +312,14 @@ const BookingPage = () => {
     if (!property) return null;
 
     const nights = calculateNights();
-    const baseTotal = property.basePrice * nights;
+    const baseTotal = property.price * nights;
     const cleaningFee = 500;
     const estimatedTotal = baseTotal + cleaningFee;
 
     return {
       accommodation: property.name,
       nights,
-      pricePerNight: property.basePrice,
+      pricePerNight: property.price,
       subtotal: baseTotal,
       cleaningFee,
       estimatedTotal,
@@ -386,7 +390,7 @@ const BookingPage = () => {
               {/* Loading State */}
               {loading && (
                 <div className="loading-state">
-                  <p>Loading accommodations...</p>
+                  <p>Loading accommodations from Supabase...</p>
                 </div>
               )}
 
@@ -397,6 +401,8 @@ const BookingPage = () => {
                   <button onClick={() => window.location.reload()}>Retry</button>
                 </div>
               )}
+
+
 
               {/* Property Selection */}
               {!loading && !error && (
@@ -558,8 +564,8 @@ const BookingPage = () => {
                   <div className="cost-breakdown">
                     <h4>Cost Estimate</h4>
                     <div className="summary-item">
-                      <span>Accommodation ({calculateNights()} nights × R{properties.find(p => p.id === selectedProperty)?.basePrice}):</span>
-                      <span>R{(calculateNights() * (properties.find(p => p.id === selectedProperty)?.basePrice || 0)).toLocaleString()}</span>
+                      <span>Accommodation ({calculateNights()} nights × R{properties.find(p => p.id === selectedProperty)?.price}):</span>
+                      <span>R{(calculateNights() * (properties.find(p => p.id === selectedProperty)?.price || 0)).toLocaleString()}</span>
                     </div>
                     <div className="summary-item">
                       <span>Cleaning fee:</span>

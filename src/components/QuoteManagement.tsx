@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Download, Send, Eye, Plus, FileText, DollarSign, Clock, CheckCircle, X, Building, User, CreditCard, Users, Settings, Trash2, ArrowRight } from 'lucide-react'
+import { Download, Send, Eye, Plus, FileText, DollarSign, Clock, CheckCircle, X, Building, User, CreditCard, Users, Trash2, ArrowRight } from 'lucide-react'
 import QuoteTemplate from './QuoteTemplate'
 import StandaloneQuoteForm from './StandaloneQuoteForm'
 import { formatCurrency } from '@/lib/currency'
@@ -230,7 +230,13 @@ export default function QuoteManagement() {
       if (response.ok) {
         const result = await response.json()
         await fetchQuotes()
-        alert(`Quote converted to invoice successfully!\nInvoice Number: ${result.invoice.invoiceNumber}`)
+
+        // Show success message and offer to navigate to the invoice
+        const navigateToInvoice = confirm(`Quote converted to invoice successfully!\nInvoice Number: ${result.invoice.invoiceNumber}\n\nWould you like to view the new invoice?`)
+
+        if (navigateToInvoice) {
+          window.location.href = `/admin/invoices/${result.invoice.id}`
+        }
       } else {
         const error = await response.json()
         alert(`Error: ${error.error}`)
@@ -263,7 +269,7 @@ export default function QuoteManagement() {
       }
     } catch (error) {
       console.error('Error deleting quote:', error)
-      alert('Failed to delete quote')
+      alert('Failed to delete quote. Please try again.')
     } finally {
       setActionLoading(null)
     }
@@ -494,11 +500,12 @@ export default function QuoteManagement() {
                       </button>
                     )}
 
-                    {quote.status !== 'CONVERTED' && (
+                    {!quote.convertedToInvoiceId && (
                       <button
                         onClick={() => handleDeleteQuote(quote.id)}
                         disabled={actionLoading === quote.id}
                         className="text-red-600 hover:text-red-900 disabled:opacity-50"
+                        title="Delete Quote"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

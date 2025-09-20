@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Send, CheckCircle, XCircle, AlertCircle } from 'lucide-react'
+import { Mail, Send, CheckCircle, XCircle, AlertCircle, Eye } from 'lucide-react'
 
 interface EmailTestResult {
   success: boolean
@@ -11,10 +11,30 @@ interface EmailTestResult {
 }
 
 export default function EmailTestPanel(): JSX.Element {
+  const [activeTab, setActiveTab] = useState<'test' | 'history'>('test')
   const [email, setEmail] = useState('')
   const [emailType, setEmailType] = useState('test')
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<EmailTestResult | null>(null)
+
+  // SECURITY: Only admin users can view email history
+  // Use localStorage directly for more reliable admin detection
+  const [isAdminUser, setIsAdminUser] = useState(false)
+
+  // Check admin status on component mount
+  React.useEffect(() => {
+    try {
+      const userData = localStorage.getItem('user')
+      if (userData) {
+        const user = JSON.parse(userData)
+        const isAdmin = user?.email === 'christiaanvonstade@gmail.com'
+        setIsAdminUser(isAdmin)
+        console.log('🔍 EmailTestPanel - Admin check:', { email: user?.email, isAdmin })
+      }
+    } catch (error) {
+      console.error('Error checking admin status:', error)
+    }
+  }, [])
 
   const emailTypes = [
     { value: 'test', label: 'Test Email', description: 'Simple test email to verify RESEND integration' },
@@ -78,12 +98,53 @@ export default function EmailTestPanel(): JSX.Element {
           <Mail className="w-6 h-6 text-blue-600" />
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-gray-900">Email Service Testing</h2>
-          <p className="text-sm text-gray-600">Test RESEND email integration and templates</p>
+          <h2 className="text-xl font-semibold text-gray-900">Email Management</h2>
+          <p className="text-sm text-gray-600">
+            {isAdminUser
+              ? 'Test email integration and view sent email history'
+              : 'Test RESEND email integration and templates'
+            }
+          </p>
         </div>
       </div>
 
-      <div className="space-y-6">
+      {/* Tab Navigation (Admin Only) */}
+      {isAdminUser && (
+        <div className="border-b border-gray-200 mb-6">
+          <nav className="-mb-px flex space-x-8">
+            <button
+              onClick={() => setActiveTab('test')}
+              className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                activeTab === 'test'
+                  ? 'border-amber-500 text-amber-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
+            >
+              <div className="flex items-center space-x-2">
+                <Send className="w-4 h-4" />
+                <span>Test Emails</span>
+              </div>
+            </button>
+            <button
+              onClick={() => setActiveTab('history')}
+              className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                activeTab === 'history'
+                  ? 'border-amber-500 text-amber-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
+            >
+              <div className="flex items-center space-x-2">
+                <Eye className="w-4 h-4" />
+                <span>Email History</span>
+              </div>
+            </button>
+          </nav>
+        </div>
+      )}
+
+      {/* Test Email Tab */}
+      {activeTab === 'test' && (
+        <div className="space-y-6">
         {/* Email Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -220,7 +281,42 @@ export default function EmailTestPanel(): JSX.Element {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
+
+      {/* Email History Tab (Admin Only) */}
+      {activeTab === 'history' && isAdminUser && (
+        <div className="space-y-6">
+          <div className="text-center py-8">
+            <Mail className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Email History</h3>
+            <p className="text-gray-600 mb-4">
+              View and manage sent email history
+            </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-md mx-auto">
+              <div className="flex items-center">
+                <AlertTriangle className="w-5 h-5 text-blue-600 mr-2" />
+                <span className="text-sm text-blue-800">
+                  Email history feature coming soon
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Access Restricted Message for Non-Admin Users */}
+      {activeTab === 'history' && !isAdminUser && (
+        <div className="space-y-6">
+          <div className="text-center py-8">
+            <AlertTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Access Restricted</h3>
+            <p className="text-gray-600">
+              Email history is only available to system administrators.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

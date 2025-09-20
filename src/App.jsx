@@ -8,6 +8,7 @@ import BlogPage from './components/blog/BlogPage';
 import ContactPage from './components/contact/ContactPage';
 import QuotingPage from './components/quoting/QuotingPage';
 import BookingPage from './components/booking/BookingPage';
+import SupabaseTest from './components/test/SupabaseTest';
 import ScrollToTop from './components/common/ScrollToTop';
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="quote" element={<QuotingPage />} />
           <Route path="booking" element={<BookingPage />} />
+          <Route path="test" element={<SupabaseTest />} />
         </Route>
       </Routes>
     </Router>

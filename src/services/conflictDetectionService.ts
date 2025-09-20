@@ -82,7 +82,10 @@ export class ConflictDetectionService {
       }
 
     } catch (error) {
-      console.error('Error checking booking conflicts:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error checking booking conflicts', { error: error instanceof Error ? error.message : String(error) })
+
       return {
         hasConflict: false,
         message: 'Unable to check for conflicts. Please try again.'
@@ -108,7 +111,9 @@ export class ConflictDetectionService {
 
       return availableRanges.slice(0, 5) // Return top 5 alternatives
     } catch (error) {
-      console.error('Error finding alternative dates:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error finding alternative dates', { error: error instanceof Error ? error.message : String(error) })
       return []
     }
   }
@@ -187,7 +192,9 @@ export class ConflictDetectionService {
       return availableRanges
 
     } catch (error) {
-      console.error('Error finding available ranges:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error finding available ranges', { error: error instanceof Error ? error.message : String(error) })
       return []
     }
   }
@@ -210,7 +217,9 @@ export class ConflictDetectionService {
       // This would query a maintenance_periods table
       return { hasConflict: false }
     } catch (error) {
-      console.error('Error checking maintenance conflicts:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error checking maintenance conflicts', { error: error instanceof Error ? error.message : String(error) })
       return { hasConflict: false }
     }
   }
@@ -225,7 +234,9 @@ export class ConflictDetectionService {
       )
       return results
     } catch (error) {
-      console.error('Error in bulk conflict check:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error in bulk conflict check', { error: error instanceof Error ? error.message : String(error) })
       return bookings.map(() => ({ hasConflict: false }))
     }
   }
@@ -256,7 +267,9 @@ export class ConflictDetectionService {
 
       return { data: bookings, error }
     } catch (error) {
-      console.error('Error getting bookings in range:', error)
+      // Use proper logging instead of console.error
+      const { logger } = require('@/lib/logger')
+      logger.error('Error getting bookings in range', { error: error instanceof Error ? error.message : String(error) })
       return { data: null, error }
     }
   }

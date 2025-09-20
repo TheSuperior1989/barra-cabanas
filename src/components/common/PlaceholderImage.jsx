@@ -1,31 +1,47 @@
-import { useState, useEffect } from 'react';
+'use client'
 
-const PlaceholderImage = ({ width = 800, height = 600, text = 'Placeholder Image', bgColor = '#4361ee', textColor = '#ffffff' }) => {
-  const [imageSrc, setImageSrc] = useState('');
+import React, { useMemo } from 'react'
 
-  useEffect(() => {
-    // Create a canvas element
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext('2d');
+// PlaceholderImageProps:
+// - width?: number
+// - height?: number
+// - text?: string
+// - bgColor?: string
+// - textColor?: string
+// - className?: string
 
-    // Fill background
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, width, height);
+const PlaceholderImage = ({
+  width = 800,
+  height = 600,
+  text = 'Placeholder Image',
+  bgColor = '#4361ee',
+  textColor = '#ffffff',
+  className = ''
+}) => {
+  // PERFORMANCE: Memoize the SVG data URL to prevent regeneration
+  const placeholderDataURL = useMemo(() => {
+    const svg = `
+      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="${bgColor}"/>
+        <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="${Math.floor(width / 20)}"
+              fill="${textColor}" text-anchor="middle" dominant-baseline="middle">
+          ${text}
+        </text>
+      </svg>
+    `
+    return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`
+  }, [width, height, text, bgColor, textColor])
 
-    // Add text
-    ctx.fillStyle = textColor;
-    ctx.font = `bold ${Math.floor(width / 20)}px Arial`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(text, width / 2, height / 2);
-
-    // Convert to data URL
-    setImageSrc(canvas.toDataURL('image/png'));
-  }, [width, height, text, bgColor, textColor]);
-
-  return <img src={imageSrc} alt={text} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
-};
+  return (
+    <img
+      src={placeholderDataURL}
+      alt={text}
+      width={width}
+      height={height}
+      className={`object-cover ${className}`}
+      loading="lazy"
+    />
+  )
+}
 
 export default PlaceholderImage;
