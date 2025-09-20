@@ -1,10 +1,10 @@
 import { useState, useEffect, useMemo, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faCalendarAlt, 
-  faUsers, 
-  faChild, 
-  faBaby, 
+import {
+  faCalendarAlt,
+  faUsers,
+  faChild,
+  faBaby,
   faHome,
   faChevronLeft,
   faChevronRight,
@@ -13,6 +13,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { getAccommodations, getBookedDates, subscribeToBookingUpdates } from '../../services/bookingService.js';
+import BookingForm from './BookingForm.jsx';
 import './BookingPage.css';
 
 // Memoized DayCell component to prevent unnecessary re-renders
@@ -127,78 +129,64 @@ const BookingPage = () => {
   const [bookedDates, setBookedDates] = useState({});
   const [showGuestSelector, setShowGuestSelector] = useState(false);
 
-  const properties = [
-    {
-      id: 'seaview-cabana',
-      name: 'Seaview Cabana',
-      price: 1500,
-      maxGuests: 2,
-      description: 'King-size bed with ocean views, private deck'
-    },
-    {
-      id: 'luxury-family-cabana',
-      name: 'Luxury Family Cabana',
-      price: 2400,
-      maxGuests: 6,
-      description: 'Perfect for families, multiple bedrooms'
-    },
-    {
-      id: 'honeymoon-suite',
-      name: 'Honeymoon Suite',
-      price: 2100,
-      maxGuests: 2,
-      description: 'Romantic suite with premium amenities'
-    },
-    {
-      id: 'ocean-breeze-bungalow',
-      name: 'Ocean Breeze Bungalow',
-      price: 1200,
-      maxGuests: 4,
-      description: 'Cozy bungalow with ocean breeze'
-    }
-  ];
+  // New state for real data
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Booking form state
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
+
+  // Load real data from Supabase
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Load accommodations and booked dates in parallel
+        const [accommodationsData, bookedDatesData] = await Promise.all([
+          getAccommodations(),
+          getBookedDates()
+        ]);
+
+        setProperties(accommodationsData);
+        setBookedDates(bookedDatesData);
+
+        console.log('✅ Loaded accommodations:', accommodationsData.length);
+        console.log('✅ Loaded booked dates for properties:', Object.keys(bookedDatesData).length);
+
+      } catch (err) {
+        console.error('❌ Error loading booking data:', err);
+        setError('Failed to load booking data. Please refresh the page.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  // Subscribe to real-time updates
+  useEffect(() => {
+    const subscription = subscribeToBookingUpdates((payload) => {
+      console.log('📡 Real-time booking update:', payload);
+      // Reload booked dates when bookings change
+      getBookedDates().then(setBookedDates);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   // Helper function to format dates
   const formatDate = (date) => {
     return date.toISOString().split('T')[0];
   };
 
-  // Simple mock booked dates - much faster than complex generation
-  const generatedBookedDates = useMemo(() => {
-    const bookedDates = {
-      'seaview-cabana': [
-        '2025-01-15', '2025-01-16', '2025-02-20', '2025-03-10', '2025-03-11', '2025-03-12',
-        '2025-06-15', '2025-06-16', '2025-07-04', '2025-07-05', '2025-12-25', '2025-12-26'
-      ],
-      'luxury-family-cabana': [
-        '2025-01-20', '2025-01-21', '2025-02-14', '2025-03-15', '2025-03-16',
-        '2025-06-20', '2025-06-21', '2025-07-10', '2025-07-11', '2025-12-30', '2025-12-31'
-      ],
-      'honeymoon-suite': [
-        '2025-01-10', '2025-01-11', '2025-02-14', '2025-02-15', '2025-03-20', '2025-03-21',
-        '2025-06-10', '2025-06-11', '2025-07-15', '2025-07-16', '2025-12-20', '2025-12-21'
-      ],
-      'ocean-breeze-bungalow': [
-        '2025-01-25', '2025-01-26', '2025-02-25', '2025-03-25', '2025-03-26',
-        '2025-06-25', '2025-06-26', '2025-07-20', '2025-07-21', '2025-12-15', '2025-12-16'
-      ]
-    };
-
-    return bookedDates;
-  }, []); // Empty dependency array - only calculate once
-
-  // Set the booked dates once when component mounts
-  useEffect(() => {
-    setBookedDates(generatedBookedDates);
-  }, [generatedBookedDates]);
-
-  // Cleanup effect to prevent memory leaks
-  useEffect(() => {
-    return () => {
-      // Cleanup any potential memory leaks
-      setBookedDates({});
-    };
-  }, []);
+  // Remove the old mock data generation code - now using real data from Supabase
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -302,7 +290,37 @@ const BookingPage = () => {
   const calculateTotal = () => {
     const property = properties.find(p => p.id === selectedProperty);
     if (!property) return 0;
-    return property.price * calculateNights();
+
+    const nights = calculateNights();
+    const baseTotal = property.basePrice * nights;
+
+    // Add potential extras (cleaning fee, etc.)
+    const cleaningFee = 500; // Standard cleaning fee
+    const estimatedTotal = baseTotal + cleaningFee;
+
+    return estimatedTotal;
+  };
+
+  const getDetailedCostBreakdown = () => {
+    if (!selectedProperty || !checkIn || !checkOut) return null;
+
+    const property = properties.find(p => p.id === selectedProperty);
+    if (!property) return null;
+
+    const nights = calculateNights();
+    const baseTotal = property.basePrice * nights;
+    const cleaningFee = 500;
+    const estimatedTotal = baseTotal + cleaningFee;
+
+    return {
+      accommodation: property.name,
+      nights,
+      pricePerNight: property.basePrice,
+      subtotal: baseTotal,
+      cleaningFee,
+      estimatedTotal,
+      currency: 'ZAR'
+    };
   };
 
   const handleBooking = () => {
@@ -310,17 +328,35 @@ const BookingPage = () => {
       alert('Please fill in all required fields');
       return;
     }
-    
+
     const property = properties.find(p => p.id === selectedProperty);
     const totalGuests = getTotalGuests();
-    
+
     if (totalGuests > property.maxGuests) {
       alert(`This property can accommodate maximum ${property.maxGuests} guests`);
       return;
     }
-    
-    // In real app, this would submit to booking API
-    alert(`Booking confirmed for ${property.name} from ${checkIn} to ${checkOut} for ${totalGuests} guests. Total: R${calculateTotal()}`);
+
+    // Show booking form instead of alert
+    setShowBookingForm(true);
+  };
+
+  const handleBookingSuccess = (result) => {
+    setShowBookingForm(false);
+    setBookingSuccess(true);
+
+    // Reset form
+    setSelectedProperty('');
+    setCheckIn('');
+    setCheckOut('');
+    setGuests({ adults: 2, children: 0, infants: 0 });
+
+    // Show success message
+    alert(`🎉 ${result.message}\n\nBooking ID: ${result.booking.id}\n\nYou will receive a confirmation email shortly.`);
+  };
+
+  const handleBookingCancel = () => {
+    setShowBookingForm(false);
   };
 
   return (
@@ -346,26 +382,44 @@ const BookingPage = () => {
           >
             <div className="booking-form">
               <h2>Make Your Reservation</h2>
-              
+
+              {/* Loading State */}
+              {loading && (
+                <div className="loading-state">
+                  <p>Loading accommodations...</p>
+                </div>
+              )}
+
+              {/* Error State */}
+              {error && (
+                <div className="error-state">
+                  <p style={{ color: 'red' }}>{error}</p>
+                  <button onClick={() => window.location.reload()}>Retry</button>
+                </div>
+              )}
+
               {/* Property Selection */}
-              <div className="form-group">
-                <label>
-                  <FontAwesomeIcon icon={faHome} />
-                  Choose Your Accommodation
-                </label>
-                <select 
-                  value={selectedProperty} 
-                  onChange={(e) => setSelectedProperty(e.target.value)}
-                  className="property-select"
-                >
-                  <option value="">Select a Property</option>
-                  {properties.map(property => (
-                    <option key={property.id} value={property.id}>
-                      {property.name} - R{property.price}/night (Max {property.maxGuests} guests)
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {!loading && !error && (
+                <div className="form-group">
+                  <label>
+                    <FontAwesomeIcon icon={faHome} />
+                    Choose Your Accommodation
+                  </label>
+                  <select
+                    value={selectedProperty}
+                    onChange={(e) => setSelectedProperty(e.target.value)}
+                    className="property-select"
+                    disabled={loading}
+                  >
+                    <option value="">Select a Property</option>
+                    {properties.map(property => (
+                      <option key={property.id} value={property.id}>
+                        {property.name} - R{property.price}/night (Max {property.maxGuests} guests)
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               {/* Date Selection */}
               <div className="date-selection">
@@ -499,9 +553,25 @@ const BookingPage = () => {
                     <span>Guests:</span>
                     <span>{getTotalGuests()}</span>
                   </div>
-                  <div className="summary-item total">
-                    <span>Total:</span>
-                    <span>R{calculateTotal()}</span>
+
+                  {/* Detailed Cost Breakdown */}
+                  <div className="cost-breakdown">
+                    <h4>Cost Estimate</h4>
+                    <div className="summary-item">
+                      <span>Accommodation ({calculateNights()} nights × R{properties.find(p => p.id === selectedProperty)?.basePrice}):</span>
+                      <span>R{(calculateNights() * (properties.find(p => p.id === selectedProperty)?.basePrice || 0)).toLocaleString()}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span>Cleaning fee:</span>
+                      <span>R500</span>
+                    </div>
+                    <div className="summary-item total">
+                      <span>Estimated Total:</span>
+                      <span>R{calculateTotal().toLocaleString()}</span>
+                    </div>
+                    <div className="cost-disclaimer">
+                      <p><small>* Prices are estimates and subject to change based on final booking details, seasonal rates, and additional services.</small></p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -600,6 +670,24 @@ const BookingPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Booking Form Modal */}
+      {showBookingForm && (
+        <BookingForm
+          bookingData={{
+            accommodationId: selectedProperty,
+            propertyName: properties.find(p => p.id === selectedProperty)?.name,
+            checkIn,
+            checkOut,
+            nights: calculateNights(),
+            guests,
+            totalGuests: getTotalGuests(),
+            totalAmount: calculateTotal()
+          }}
+          onSuccess={handleBookingSuccess}
+          onCancel={handleBookingCancel}
+        />
+      )}
     </div>
   );
 };

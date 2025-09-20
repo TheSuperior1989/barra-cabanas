@@ -1,0 +1,61 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert_rules.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Next.js application metrics
+  - job_name: 'barra-admin'
+    static_configs:
+      - targets: ['barra-admin:3000']
+    metrics_path: '/api/metrics'
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+  # Node.js process metrics
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  # Redis metrics
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+
+  # Nginx metrics
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx-exporter:9113']
+
+  # Real-time performance metrics
+  - job_name: 'realtime-metrics'
+    static_configs:
+      - targets: ['barra-admin:3000']
+    metrics_path: '/api/metrics/realtime'
+    scrape_interval: 5s
+    scrape_timeout: 3s
+
+  # WebSocket connection metrics
+  - job_name: 'websocket-metrics'
+    static_configs:
+      - targets: ['barra-admin:3000']
+    metrics_path: '/api/metrics/websocket'
+    scrape_interval: 10s
+
+  # Database performance metrics (if using Supabase self-hosted)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter:9187']

@@ -611,7 +611,45 @@
   background-color: #96ceb4;
 }
 
+/* Cost Breakdown Styles */
+.cost-breakdown {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e8ed;
+}
 
+.cost-breakdown h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+.cost-breakdown .summary-item {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+.cost-breakdown .summary-item.total {
+  border-top: 1px solid #3498db;
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 1.1em;
+  color: #2c3e50;
+}
+
+.cost-disclaimer {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #ffc107;
+}
+
+.cost-disclaimer p {
+  margin: 0;
+  color: #6c757d;
+  font-style: italic;
+}
 
 @media screen and (max-width: 768px) {
   .booking-hero-title {
