@@ -45,8 +45,9 @@
 }
 
 .booking-form-section {
-  padding: 80px 0;
+  padding: 80px 0 120px 0;
   background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 .booking-form-container {
@@ -60,6 +61,8 @@
 
 .booking-form {
   padding: 50px;
+  min-height: auto;
+  overflow: visible;
 }
 
 .booking-form h2 {
@@ -217,11 +220,12 @@
 }
 
 .booking-summary {
-  margin: 40px 0;
+  margin: 40px 0 30px 0;
   padding: 30px;
   background-color: #f8f9fa;
   border-radius: 15px;
   border: 2px solid #e0e0e0;
+  overflow: visible;
 }
 
 .booking-summary h3 {
@@ -256,7 +260,7 @@
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 10px;
-  margin-top: 20px;
+  margin: 30px 0 20px 0;
 }
 
 /* Calendar Modal */
@@ -656,8 +660,18 @@
     font-size: 2.5rem;
   }
 
+  .booking-form-section {
+    padding: 60px 0 100px 0;
+  }
+
+  .booking-form-container {
+    margin: 0 20px;
+    max-width: none;
+  }
+
   .booking-form {
     padding: 30px 20px;
+    overflow: visible;
   }
 
   .booking-form h2 {
@@ -666,6 +680,16 @@
 
   .date-selection {
     grid-template-columns: 1fr;
+  }
+
+  .booking-summary {
+    margin: 30px 0 20px 0;
+    padding: 20px;
+  }
+
+  .booking-btn {
+    margin: 20px 0;
+    padding: 16px;
   }
 
   .calendar-container {
@@ -689,6 +713,4 @@
     padding: 30px 20px;
     gap: 20px;
   }
-
-
 }
