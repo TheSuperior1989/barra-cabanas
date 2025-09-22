@@ -9,7 +9,7 @@
     "build-next": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "prisma generate && next build"
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
