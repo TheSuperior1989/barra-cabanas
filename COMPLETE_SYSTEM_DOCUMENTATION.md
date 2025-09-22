@@ -38,7 +38,9 @@ Customer Website (React/Vite) ↔ Admin Dashboard (Next.js) ↔ Supabase Databas
 SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsbG1jdG1jb3BkeW13aGFscG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2ODA3MDEsImV4cCI6MjA2ODI1NjcwMX0.TjSQdVSr0rzCM2HPeZZlzZ2SsZvNYWmgRAMflTcJE3w
 
 # Service Role Key - Server-side only (KEEP SECRET)
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsbG1jdG1jb3BkeW13aGFscG1pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MjY4MDcwMSwiZXhwIjoyMDY4MjU2NzAxfQ.BnCCxOY8X0gZrR8ocF2i4KPH-i7ShteFTbWt7BNzlKk
+# ⚠️ SECURITY: Service role key removed from documentation for security
+# Get the current key from Supabase Dashboard → Settings → API → Service Role Key
+SUPABASE_SERVICE_ROLE_KEY=[GET_FROM_SUPABASE_DASHBOARD]
 ```
 
 ### Database Schema
